@@ -70,12 +70,12 @@ EXPOSE 80
 ###########################################################################################################################
 # Commande #
 ############
-ENTRYPOINT ["/usr/sbin/apache2ctl"]
+ENTRYPOINT ["/usr/sbin/apache2ctl -D FOREGROUND"]
 
 ###########################################################################################################################
 # Argument #
 ############
-CMD ["-D","FOREGROUND"]
+#CMD ["-D","FOREGROUND"]
 
 ###########################################################################################################################
 # Source: https://medium.com/@vv-devopsguru/best-practices-for-running-docker-containers-with-non-root-users-6c9d3dbbd4cb #
