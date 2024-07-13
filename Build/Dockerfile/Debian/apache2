@@ -6,20 +6,20 @@ FROM debian:11
 ##############################################################################################################################################################################################
 # User & Group #
 ################
-ENV USERNAME=marc
-ENV GROUP=admin
-ENV UID=1000
-ENV GUID=1000
+#ENV USERNAME=marc
+#ENV GROUP=admin
+#ENV UID=1000
+#ENV GUID=1000
 
 ##############################################################################################################################################################################################
 # Apache #
 ##########
-ENV APACHE_RUN_DIR=/var/run/apache2
-ENV APACHE_PID_FILE=/var/run/apache2/apache2.pid
-ENV APACHE_LOG_DIR=/var/log/apache2
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/
-ENV APACHE_RUN_GROUP=$GROUP
-ENV APACHE_RUN_USER=$USERNAME
+#ENV APACHE_RUN_DIR=/var/run/apache2
+#ENV APACHE_PID_FILE=/var/run/apache2/apache2.pid
+#ENV APACHE_LOG_DIR=/var/log/apache2
+#ENV APACHE_DOCUMENT_ROOT=/var/www/html/
+#ENV APACHE_RUN_GROUP=$GROUP
+#ENV APACHE_RUN_USER=$USERNAME
 
 ##############################################################################################################################################################################################
 # Copie de fichier #
@@ -38,8 +38,8 @@ RUN chmod +x /root/*.sh
 ##############################################################################################################################################################################################
 # Script de construction #
 ##########################
-RUN bash -c '/root/useradd.sh'
-RUN bash -c '/root/apt_update.sh'
+#RUN bash -c '/root/useradd.sh'
+#RUN bash -c '/root/apt_update.sh'
 #RUN bash -c '/root/apache2.sh'
 #RUN bash -c '/root/php.sh'
 
