@@ -54,7 +54,7 @@ COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.s
 ###############
 RUN chmod +x /root/*.sh
 RUN chmod +x /home/marc/*.sh
-RUN chown $USERNAME:$GROUPE /home/marc/*.sh
+RUN chown $USERNAME:$GROUPE /home/marc/start.sh
 
 ##############################################################################################################################################################################################
 # Script de construction #
@@ -99,7 +99,7 @@ RUN  ln -sf /dev/stdout /var/log/apache2/access.log
 ############
 #ENTRYPOINT ["/usr/sbin/apache2ctl"]
 
-ENTRYPOINT ["/root/start.sh"]
+ENTRYPOINT ["/home/marc/start.sh"]
 
 ##############################################################################################################################################################################################
 # Argument #
