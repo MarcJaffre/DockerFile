@@ -23,7 +23,7 @@ RUN apk add --no-cache php
 EXPOSE 80
 
 # Volume
-#VOLUME /var/www/html
+VOLUME /var/www/html
 
 # WorkDir
 WORKDIR /var/www/html
