@@ -6,6 +6,7 @@ RUN apk update && apk upgrade
 
 # Installation du serveur Web
 RUN apk add apache2
+RUN apk add apache2-utils
 
 # Volume
 VOLUME /var/www/html
