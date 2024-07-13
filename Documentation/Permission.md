@@ -2,7 +2,8 @@
 ```bash
 clear;
 dpkg -L apache2;
-dpkg -L apache2 | grep -v ".gz\|.service\|.conf\|.load" | sort -n
+dpkg -L apache2 | grep -v ".gz\|.service\|.conf\|.load"       | sort -n;
+dpkg -L mariadb-server | grep -v ".gz\|.txt\|.sh\|.so\|.conf" | sort -n;
 ```
 
 ```
@@ -29,4 +30,39 @@ dpkg -L apache2 | grep -v ".gz\|.service\|.conf\|.load" | sort -n
 /var/lib/apache2
 /var/log/apache2
 /var/www/html
+```
+
+```
+/etc/logcheck/ignore.d.paranoid/mariadb-server
+/etc/logcheck/ignore.d.server/mariadb-server
+/etc/logcheck/ignore.d.workstation/mariadb-server
+/etc/logrotate.d/mariadb
+/etc/mysql/debian-start
+/lib/systemd/system/mariadb.service
+/lib/systemd/system/mariadb@.service
+/lib/systemd/system/mariadb@bootstrap.service.d
+/lib/systemd/system/mysql.service
+/lib/systemd/system/mysqld.service
+
+/usr/bin/mariadb-service-convert
+/usr/bin/mariadbd-multi
+/usr/bin/mariadbd-safe
+/usr/bin/mariadbd-safe-helper
+/usr/bin/myisam_ftdump
+/usr/bin/myisamchk
+/usr/bin/myisamlog
+/usr/bin/myisampack
+/usr/bin/mysql_convert_table_format
+/usr/bin/mysql_plugin
+/usr/bin/mysql_secure_installation
+/usr/bin/mysql_setpermission
+/usr/bin/mysql_tzinfo_to_sql
+/usr/bin/mysqlbinlog
+/usr/bin/mysqld_multi
+/usr/bin/mysqld_safe
+/usr/bin/mysqld_safe_helper
+/usr/bin/mysqlhotcopy
+
+/usr/lib/mysql
+/usr/lib/mysql/plugin
 ```
