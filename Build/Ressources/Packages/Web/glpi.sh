@@ -1,5 +1,5 @@
 # Telecharger GLPI
-wget https://github.com/glpi-project/glpi/releases/download/$VERSION/glpi-$VERSION.tgz -O /tmp/glpi.tgz 2>/dev/null;
+wget https://github.com/glpi-project/glpi/releases/download/$VERSION/glpi-$VERSION.tgz -O /tmp/glpi.tgz
 
 # Extraire le fichier compresser
 tar -xf /tmp/glpi.tgz -C /var/www/html;
