@@ -15,6 +15,7 @@ ENV GUID=1000
 # Copie de fichier #
 ####################
 COPY ./Docker/Build/Ressources/General/useradd.sh /root/useradd.sh
+COPY ./Docker/Build/Ressources/Apache2/install.sh /root/install_apache2.sh
 
 ##############################################################################################################################################################################################
 # Permissions #
