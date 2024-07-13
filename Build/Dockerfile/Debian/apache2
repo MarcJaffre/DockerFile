@@ -41,7 +41,7 @@ apt install -y \
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN mkdir -p /var/lock/apache2 /var/log/apache2 /var/run/apache2
 RUN chown -R $USERNAME:$GROUP /var/lock/apache2 /var/log/apache2 /var/run/apache2 /var/www/html
-RUN sed -i -e "s/LogLevel warn/LogLevel error/g" /etc/apache2/apache2.conf
+RUN sed -i -e "s/LogLevel warn/LogLevel debug/g" /etc/apache2/apache2.conf
 
 
 ###########################################################################################################################
