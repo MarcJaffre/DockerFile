@@ -58,13 +58,14 @@ RUN chmod +x /root/*.sh
 # Script de construction #
 ##########################
 RUN bash -c '/root/useradd.sh'
-#RUN bash -c '/root/apt_update.sh'
-#RUN bash -c '/root/apache2.sh'
-#RUN bash -c '/root/curl.sh'
-#RUN bash -c '/root/php.sh'
-#RUN bash -c '/root/php_glpi.sh'
-#RUN bash -c '/root/wget.sh'
-#RUN bash -c '/root/glpi.sh'
+RUN bash -c '/root/apt_update.sh'
+RUN bash -c '/root/curl.sh'
+RUN bash -c '/root/wget.sh'
+RUN bash -c '/root/apache2.sh'
+RUN bash -c '/root/php.sh'
+RUN bash -c '/root/php_glpi.sh'
+
+RUN bash -c '/root/glpi.sh'
 
 ##############################################################################################################################################################################################
 # Script de Nettoyage #
@@ -76,7 +77,6 @@ RUN bash -c '/root/useradd.sh'
 ###############
 RUN chmod +x /home/marc/*.sh
 RUN chown $USERNAME:$GROUP /home/marc/start.sh
-
 
 ##############################################################################################################################################################################################
 # WorkDir #
