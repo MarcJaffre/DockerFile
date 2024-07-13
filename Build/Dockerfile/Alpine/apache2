@@ -26,7 +26,7 @@ RUN touch /var/www/logs/error.log
 RUN chown -R apache:www-data /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/
 
 # Utilisateur du conteneur
-USER $USER_NAME
+USER apache
 
 # Port applicatif
 EXPOSE 80
