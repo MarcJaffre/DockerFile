@@ -1,5 +1,2 @@
 # Image System
-FROM base:0.1
-
-# Installation du serveur Web
-RUN apk add apache2
+FROM XXXX
