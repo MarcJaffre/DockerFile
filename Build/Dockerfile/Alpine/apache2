@@ -2,9 +2,9 @@
 FROM alpine
 
 # Build Argument
-ARG USER_NAME = marc
-ARG USER_ID   = 1000
-ARG GROUP_ID  = $USER_ID
+ARG USER_NAME=marc
+ARG USER_ID=1000
+ARG GROUP_ID=$USER_ID
 
 # UserProfil
 #RUN addgroup -g 1000 marc
