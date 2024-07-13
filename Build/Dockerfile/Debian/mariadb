@@ -37,7 +37,11 @@ RUN chmod +x /root/*.sh
 RUN bash -c '/root/useradd.sh'
 RUN bash -c '/root/apt_update.sh'
 RUN bash -c '/root/mariadb.sh'
-RUN bash -c '/root/mysql_secure.sh'
+
+# KO
+#RUN bash -c '/root/mysql_secure.sh'
+
+
 RUN bash -c '/root/mysql_unlock.sh
 
 
