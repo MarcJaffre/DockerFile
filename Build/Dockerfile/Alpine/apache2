@@ -19,8 +19,8 @@ RUN apk add --no-cache apache2
 # Installation de PHP
 RUN apk add --no-cache php
 
-# Username
-USER $USER_NAME
+# Utilisateur du conteneur
+# USER $USER_NAME
 
 # Port applicatif
 EXPOSE 80
