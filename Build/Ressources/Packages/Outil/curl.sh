@@ -1,1 +1,1 @@
-apt install -y curl 2>/dev/null;
+apt install -y curl 1>/dev/null;
