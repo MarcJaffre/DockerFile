@@ -23,6 +23,14 @@ ENV APACHE_RUN_USER=$USERNAME
 ARG PASS_ROOT_SQL=admin
 
 ##############################################################################################################################################################################################
+# Label #
+#########
+LABEL version="1.0"
+LABEL description="MariaDB Server"
+
+
+
+##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
 COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh       /root/apache2.sh
@@ -47,6 +55,9 @@ RUN bash -c '/root/apt_update.sh'
 #RUN bash -c '/root/php.sh'
 RUN bash -c '/root/mariadb.sh'
 #RUN bash -c '/root/mysql_secure.sh'
+
+HEALTHCHECK --start-period=5m CMD mariadb -e 'SELECT @@datadir;' || exit 1
+
 
 ##############################################################################################################################################################################################
 # Script de Nettoyage #
