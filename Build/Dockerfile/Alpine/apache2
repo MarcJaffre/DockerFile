@@ -22,7 +22,7 @@ RUN addgroup marc www-data
 
 # Permission
 RUN mkdir -p /var/run/apache2 /var/lock/apache2 /var/log/apache2
-RUN chown -R apache:www-data /var/run/apache2 /var/lock/apache2 /var/log/apache2
+RUN chown -R apache:www-data /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/logs/error.log
 
 # Utilisateur du conteneur
 USER $USER_NAME
