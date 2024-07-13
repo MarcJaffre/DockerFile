@@ -14,4 +14,4 @@ volume /var/www/html
 EXPOSE 80
 
 # Commande de lancement
-CMD [“apache2ctl”, “-D”, “FOREGROUND”]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
