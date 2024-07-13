@@ -1,6 +1,6 @@
 #######################################################################################################################################
-#  Fuseau Horaire #
-###################
+# Fuseau Horaire #
+##################
 PHP_VERSION=$(php -version | head -n 1 | cut -d "P" -f3 | cut -c 2-4)
 
 # Substitution de ;date.timezone = en date.timezone= Europe/Paris
