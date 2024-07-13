@@ -11,3 +11,9 @@ apt install -y php-ldap;
 apt install -y php-mbstring;
 apt install -y php-symfony-polyfill-ctype;
 apt install -y php-zip;
+
+
+##############################################################################################################################
+# Activation du module Rewrite #
+################################
+a2enmod rewrite
