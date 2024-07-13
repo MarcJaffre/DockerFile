@@ -1,7 +1,7 @@
 #######################################################################################################################################
 # Installation du site #
 ########################
-/var/www/html/glpi/bin/console db:install \
+echo "yes no" | /var/www/html/glpi/bin/console db:install \
 --reconfigure \
 --default-language=$LANGUE \
 --db-host=$HOST \
@@ -12,3 +12,7 @@
 --force;
 
 
+#######################################################################################################################################
+# Demarrage du conteneur #
+##########################
+/usr/sbin/apache2ctl -D FOREGROUND;
