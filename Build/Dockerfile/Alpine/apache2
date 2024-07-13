@@ -16,6 +16,9 @@ EXPOSE 80
 # Volume
 VOLUME /var/www/html
 
+# WorkDir
+WORKDIR /var/www/html
+
 # Commande
 ENTRYPOINT ["/usr/sbin/httpd"]
 
