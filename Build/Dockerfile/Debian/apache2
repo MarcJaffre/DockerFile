@@ -30,8 +30,6 @@ ARG PASS_ROOT_SQL=admin
 # Copie de fichier #
 ####################
 COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh       /root/apache2.sh
-COPY ./Docker/Build/Ressources/Packages/MariaDB/install.sh       /root/mariadb.sh
-COPY ./Docker/Build/Ressources/Packages/MariaDB/mysql_secure.sh  /root/mysql_secure.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/install.sh           /root/php.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
