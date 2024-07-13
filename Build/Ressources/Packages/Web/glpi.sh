@@ -6,6 +6,9 @@ PHP_VERSION=$(php -version | head -n 1 | cut -d "P" -f3 | cut -c 2-4)
 # Substitution de ;date.timezone = en date.timezone= Europe/Paris
 sed -i -e "s/;date.timezone \=/date.timezone \= Europe\/Paris/g" /etc/php/$PHP_VERSION/apache2/php.ini;
 
+# Prévenir l'accès aux cookies depuis les scripts côté client.
+sed -i -e "s/session.cookie_httponly \=/session.cookie_httponly \= on/" /etc/php/$PHP_VERSION/apache2/php.ini;
+
 
 #######################################################################################################################################
 # Apache2 pour GLPI #
