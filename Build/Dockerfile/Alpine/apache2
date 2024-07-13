@@ -7,8 +7,8 @@ RUN apk --no-cache upgrade
 # Installation du serveur Web
 RUN apk add --no-cache apache2
 
-# Supplements
-#RUN mkdir /run/apache2
+# Installation de PHP
+RUN apk add php
 
 # Port applicatif
 EXPOSE 80
