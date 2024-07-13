@@ -4,82 +4,47 @@
 FROM debian
 
 ###########################################################################################################################
-# Variable pour la construction #
-#################################
+# Variables #
+#############
+# Building
 ARG USERNAME=marc
 ARG GROUP=admin
 ARG UID=1000
 ARG GID=1000
-
-###########################################################################################################################
-# Variable Persistente #
-########################
+# Persistent
 ENV APACHE_RUN_DIR=/var/run/apache2
 ENV APACHE_PID_FILE=/var/run/apache2/apache2.pid
 ENV APACHE_LOG_DIR=/var/log/apache2
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/
-
 ENV APACHE_RUN_GROUP=$GROUP
 ENV APACHE_RUN_USER=$USERNAME
 
 ###########################################################################################################################
 # Creation Groupe et Utilisateur #
 ##################################
-RUN groupadd -r   $GROUP
-RUN useradd -r -g $GROUP $USERNAME
+RUN groupadd -r $GROUP && useradd -r -g $GROUP $USERNAME
 
 ###########################################################################################################################
 # Packages #
 ############
-RUN apt update 
-RUN apt install -y apache2 apache2-utils
-RUN apt install -y php
+RUN apt update && \
+apt install -y \
+ apache2 \
+ apache2-utils \
+ php && \
+ apt clean autoclean && \
+ apt autoremove --yes && \
+ rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ###########################################################################################################################
-# COPIE DE FICHIERS #
-#####################
-COPY ./Docker/Build/Ressources/PHP/VERSION.sh /usr/bin/PHP_VERSION
-#COPY ./Docker/Build/Ressources/Apache2/start.sh /usr/bin/startup.sh
-
-###########################################################################################################################
-# PHP_VERSION #
-###############
-RUN chmod +x /usr/bin/PHP_VERSION
-RUN /usr/bin/PHP_VERSION
-
-
-###########################################################################################################################
-# Docker #
-##########
-#RUN chmod +x /usr/bin/startup.sh
-
-###########################################################################################################################
-# FIX : Set the 'ServerName' directive globally to suppress this message #
-##########################################################################
-#RUN sed -i -e "s/\#ServerName www\.example\.com/ServerName $HOSTNAME/g" /etc/apache2/sites-enabled/000-default.conf
+# Apache2 #
+###########
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN mkdir -p /var/lock/apache2 /var/log/apache2 /var/run/apache2
+RUN chown -R $USERNAME:$GROUP /var/lock/apache2 /var/log/apache2 /var/run/apache2 /var/www/html
 
-###########################################################################################################################
-# Nettoyage #
-#############
-RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
-
-###########################################################################################################################
-# Modification des permissions #
-################################
-RUN mkdir -p /var/lock/apache2
-RUN mkdir -p /var/log/apache2
-RUN mkdir -p /var/run/apache2
-
-RUN chown -R marc:admin /var/lock/apache2 
-RUN chown -R marc:admin /var/log/apache2
-RUN chown -R marc:admin /var/run/apache2 
-RUN chown -R marc:admin /var/www/html
-
-###########################################################################################################################
-# Lancement du Conteneur en Utilisateur #
-#########################################
-USER $USERNAME
+#RUN sed -i -e "s/LogLevel warn/LogLevel debug/g" /etc/apache2/apache2.conf
+RUN sed -i -e "s/#LogLevel info ssl:warn/LogLevel emerg/g" /etc/apache2/sites-enabled/000-default.conf
 
 ###########################################################################################################################
 # WorkDir #
@@ -97,20 +62,22 @@ VOLUME /var/www/html
 EXPOSE 80 443
 
 ###########################################################################################################################
+# Journalisation #
+##################
+RUN ln -sf /dev/stdout /var/log/apache2/access.log
+#RUN ln -sf /dev/stderr /var/log/apache2/error.log
+
+###########################################################################################################################
 # Commande #
 ############
-#ENTRYPOINT ["/usr/bin/startup.sh"]
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
 
 ###########################################################################################################################
 # Argument #
 ############
-ENTRYPOINT ["/usr/sbin/apache2ctl"]
 CMD ["-D","FOREGROUND"]
 
-# Afficher la log
-RUN ln -sf /dev/stdout /var/log/apache2/access.log
-RUN ln -sf /dev/stderr /var/log/apache2/error.log | grep -v "AH00094"
-
 ###########################################################################################################################
-# Source: https://medium.com/@vv-devopsguru/best-practices-for-running-docker-containers-with-non-root-users-6c9d3dbbd4cb #
-###########################################################################################################################
+# Lancement du Conteneur en Utilisateur #
+#########################################
+USER $USERNAME
