@@ -13,6 +13,8 @@ ENV DATABSE=GLPI
 ENV USERNAMEDB=GLPI
 ENV PASSDB=admin
 
+# docker exec -it ticketing rm /var/www/html/glpi/install/install.php
+
 ##############################################################################################################################################################################################
 # User & Group #
 ################
