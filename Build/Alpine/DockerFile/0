@@ -1,0 +1,5 @@
+# Image System
+FROM alpine
+
+# Mise a jour
+RUN apk update && apk upgrade
