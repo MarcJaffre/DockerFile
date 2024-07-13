@@ -75,7 +75,7 @@ ENTRYPOINT ["/usr/sbin/apache2ctl"]
 ###########################################################################################################################
 # Argument #
 ############
-CMD ["-D","FOREGROUND"]
+CMD ["-D","FOREGROUND" "&&" "tail -f /var/log/apache2/access.log" ]
 
 ###########################################################################################################################
 # Source: https://medium.com/@vv-devopsguru/best-practices-for-running-docker-containers-with-non-root-users-6c9d3dbbd4cb #
