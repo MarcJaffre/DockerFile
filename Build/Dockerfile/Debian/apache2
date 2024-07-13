@@ -40,10 +40,10 @@ RUN chmod +x /root/*.sh
 ##########################
 #RUN bash -c '/root/useradd.sh'
 RUN bash -c '/root/apt_update.sh'
-RUN bash -c '/root/apache2.sh'
-#RUN bash -c '/root/php.sh'
+#RUN bash -c '/root/apache2.sh'
+RUN bash -c '/root/php.sh'
 
 ##############################################################################################################################################################################################
 # Script de Nettoyage #
 #######################
-#RUN bash -c '/root/apt_clean.sh'
+RUN bash -c '/root/apt_clean.sh'
