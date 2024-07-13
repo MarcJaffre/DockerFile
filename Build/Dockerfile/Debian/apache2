@@ -39,9 +39,7 @@ RUN apt install -y php
 # COPIE DE FICHIERS #
 #####################
 COPY ./Docker/Build/Ressources/PHP/VERSION.sh /usr/bin/PHP_VERSION
-COPY ./Docker/Build/Ressources/Apache2/start.sh /usr/bin/startup.sh
-
-
+#COPY ./Docker/Build/Ressources/Apache2/start.sh /usr/bin/startup.sh
 
 ###########################################################################################################################
 # PHP_VERSION #
@@ -53,7 +51,7 @@ RUN /usr/bin/PHP_VERSION
 ###########################################################################################################################
 # Docker #
 ##########
-RUN chmod +x /usr/bin/startup.sh
+#RUN chmod +x /usr/bin/startup.sh
 
 ###########################################################################################################################
 # FIX : Set the 'ServerName' directive globally to suppress this message #
@@ -62,8 +60,8 @@ RUN chmod +x /usr/bin/startup.sh
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 ###########################################################################################################################
-# Nettyage #
-############
+# Nettoyage #
+#############
 RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ###########################################################################################################################
@@ -101,13 +99,17 @@ EXPOSE 80 443
 ###########################################################################################################################
 # Commande #
 ############
-ENTRYPOINT ["/usr/bin/startup.sh"]
+#ENTRYPOINT ["/usr/bin/startup.sh"]
 
 ###########################################################################################################################
 # Argument #
 ############
-#ENTRYPOINT ["/usr/sbin/apache2ctl"]
-#CMD ["-D","FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["-D","FOREGROUND"]
+
+# Afficher la log
+RUN ln -sf /dev/stdout /var/log/apache2/access.log
+RUN ln -sf /dev/stderr /var/log/apache2/error.log
 
 ###########################################################################################################################
 # Source: https://medium.com/@vv-devopsguru/best-practices-for-running-docker-containers-with-non-root-users-6c9d3dbbd4cb #
