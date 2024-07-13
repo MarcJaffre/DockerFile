@@ -21,24 +21,23 @@ RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_N
 RUN addgroup marc apache
 
 # Permission
-#RUN mkdir -p /var/run/apache2 /var/lock/apache2 /var/log/apache2
-#RUN chown -R apache:apache /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
-
+RUN mkdir -p /var/run/apache2 /var/lock/apache2 /var/log/apache2
+RUN chown -R apache:apache /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
 
 # Utilisateur du conteneur
-#USER marc
+USER marc
 
 # Port applicatif
-#EXPOSE 80
+EXPOSE 80
 
 # Volume
-#VOLUME /var/www/html
+VOLUME /var/www/html
 
 # WorkDir
-#WORKDIR /var/www/html
+WORKDIR /var/www/html
 
 # Commande
-#ENTRYPOINT ["/usr/sbin/httpd"]
+ENTRYPOINT ["/usr/sbin/httpd"]
 
 # Argument
-#CMD ["-D","FOREGROUND"]
+CMD ["-D","FOREGROUND"]
