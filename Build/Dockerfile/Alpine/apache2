@@ -6,10 +6,6 @@ ARG USER_NAME=marc
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 
-# UserProfil
-RUN addgroup -g $GROUP_ID $USER_NAME
-RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
-
 # Mise a jour
 RUN apk --no-cache upgrade
 
@@ -18,6 +14,10 @@ RUN apk add --no-cache apache2
 
 # Installation de PHP
 RUN apk add --no-cache php
+
+# Creation User
+RUN addgroup -g $GROUP_ID $USER_NAME
+RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
 
 # Utilisateur du conteneur
 # USER $USER_NAME
