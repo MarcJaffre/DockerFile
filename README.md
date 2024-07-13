@@ -12,9 +12,8 @@ bash ./Docker/build.sh Dockerfile/<OS> <FICHIER> <IMAGE DE SORTIE>
 ```
 
 ```
-bash ./Docker/build.sh Dockerfile/Alpine apache apache2
-bash ./Docker/build.sh Dockerfile/Alpine mariadb mariadb
-bash ./Docker/build.sh Dockerfile/Alpine glpi glpi
-bash ./Docker/build.sh Dockerfile/Alpine 3 centreon
-bash ./Docker/build.sh Dockerfile/Alpine 4 
+bash ./Docker/build.sh Dockerfile/Alpine apache2 web
+bash ./Docker/build.sh Dockerfile/Alpine mariadb database
+bash ./Docker/build.sh Dockerfile/Alpine glpi ticketing
+bash ./Docker/build.sh Dockerfile/Alpine centreon supervision
 ```
