@@ -6,3 +6,12 @@ RUN apk update && apk upgrade
 
 # Installation du serveur Web
 RUN apk add apache2
+
+# Volume
+volume /var/www/html
+
+# Port applicatif
+EXPOSE 80
+
+# Commande de lancement
+CMD [“apache2ctl”, “-D”, “FOREGROUND”]
