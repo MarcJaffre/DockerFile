@@ -25,6 +25,6 @@ RUN chmod +x /root/*.sh
 ##############################################################################################################################################################################################
 # Exécution #
 #############
-RUN /root/useradd.sh
-RUN /root/install_apache2.sh
+RUN bash -c '/root/useradd.sh'
+RUN bash -c '/root/install_apache2.sh'
 
