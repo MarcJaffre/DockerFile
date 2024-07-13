@@ -109,7 +109,7 @@ CMD ["-D","FOREGROUND"]
 
 # Afficher la log
 RUN ln -sf /dev/stdout /var/log/apache2/access.log
-RUN ln -sf /dev/stderr /var/log/apache2/error.log
+RUN ln -sf /dev/stderr /var/log/apache2/error.log | grep -v "AH00094"
 
 ###########################################################################################################################
 # Source: https://medium.com/@vv-devopsguru/best-practices-for-running-docker-containers-with-non-root-users-6c9d3dbbd4cb #
