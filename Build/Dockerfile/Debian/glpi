@@ -7,6 +7,11 @@ FROM debian
 # GLPI #
 ########
 ENV VERSION="10.0.9"
+ENV LANGUE=fr_FR
+ENV HOST=localhost
+ENV DATABSE=GLPI
+ENV USERNAMEDB=GLPI
+ENV PASSDB=admin
 
 ##############################################################################################################################################################################################
 # User & Group #
