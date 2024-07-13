@@ -13,6 +13,3 @@ VOLUME /var/www/html
 
 # Port applicatif
 EXPOSE 80
-
-# Commande de lancement
-CMD ["apache2ctl", "-D", "FOREGROUND"]
