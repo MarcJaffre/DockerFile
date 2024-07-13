@@ -8,7 +8,7 @@ RUN apk update && apk upgrade
 RUN apk add apache2
 
 # Volume
-volume /var/www/html
+VOLUME /var/www/html
 
 # Port applicatif
 EXPOSE 80
