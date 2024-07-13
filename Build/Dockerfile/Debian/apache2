@@ -43,12 +43,18 @@ USER $USERNAME
 ###########################################################################################################################
 # Modification des permissions #
 ################################
-#/var/run/apache2 /var/lock/apache2 /var/log/apache2
-#RUN mkdir -p 
-#RUN chown -R marc:admin /var/run/apache2 
-#RUN chown -R marc:admin /var/lock/apache2 
+RUN mkdir -p /var/log/apache2
 RUN chown -R marc:admin /var/log/apache2 
+
+#RUN mkdir -p /var/run/apache2
+#RUN chown -R marc:admin /var/run/apache2 
+
+#RUN mkdir -p /var/lock/apache2 
+#RUN chown -R marc:admin /var/lock/apache2 
+
 #RUN chown -R marc:admin /var/www/html
+
+
 
 
 
