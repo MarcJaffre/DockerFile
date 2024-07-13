@@ -30,7 +30,10 @@ ARG VERSION="10.0.9"
 ##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
+
+
 COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh       /root/apache2.sh
+COPY ./Docker/Build/Ressources/Packages/Outil/base.sh            /root/outils_dl.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/install.sh           /root/php.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/glpi.sh              /root/php_glpi.sh
 COPY ./Docker/Build/Ressources/Packages/Web/glpi.sh              /root/glpi.sh
@@ -50,6 +53,7 @@ RUN bash -c '/root/apt_update.sh'
 RUN bash -c '/root/apache2.sh'
 RUN bash -c '/root/php.sh'
 RUN bash -c '/root/php_glpi.sh'
+RUN bash -c '/root/outils_dl.sh'
 RUN bash -c '/root/glpi.sh'
 
 ##############################################################################################################################################################################################
