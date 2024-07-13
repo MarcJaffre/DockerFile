@@ -24,8 +24,8 @@ RUN apt update
 RUN apt install -y apache2 apache2-utils
 RUN apt install -y php
 
-RUN /bin/bash -c "VERSION=$(php --version | head -n 1 | cut -c 5-7)"
-RUN /bin/bash -c "echo 'OK' > /var/www/html/$VERSION"
+RUN bash -c echo $(php --version | head -n 1 | cut -c 5-7)" > /test
+RUN cat /test
 
 
 
