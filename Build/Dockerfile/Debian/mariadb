@@ -8,6 +8,13 @@ FROM debian
 ############
 ENV DEBIAN_FRONTEND=noninteractive
 
+# configuration options
+ENV MYSQL_BIND_ADDRESS 0.0.0.0
+ENV MYSQL_PORT 3306
+ENV MYSQL_ADMIN_PASS password
+ENV MYSQL_ADMIN_USER admin
+ENV MYSQL_ADMIN_HOST %
+
 ###########################################################################################################################
 # Packages #
 ############
