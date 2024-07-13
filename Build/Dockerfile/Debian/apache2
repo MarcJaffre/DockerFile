@@ -14,6 +14,7 @@ ENV GUID=1000
 ##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
+COPY ./Docker/Build/Ressources/Packages/apache2.sh   /root/apache2.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh     /root/useradd.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh  /root/apt_update.sh
 
@@ -26,3 +27,4 @@ RUN chmod +x /root/*.sh
 # Exécution #
 #############
 RUN bash -c '/root/useradd.sh && /root/apt_update.sh'
+RUN bash -c '/root/apache2.sh'
