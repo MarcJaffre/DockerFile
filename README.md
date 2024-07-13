@@ -13,10 +13,10 @@ bash ./Docker/build.sh Dockerfile/<OS> <FICHIER> <IMAGE DE SORTIE>
 
 ### Construction
 ```
-bash ./Docker/build.sh Dockerfile/Alpine apache2 web
-bash ./Docker/build.sh Dockerfile/Alpine mariadb database
-bash ./Docker/build.sh Dockerfile/Alpine glpi ticketing
-bash ./Docker/build.sh Dockerfile/Alpine centreon supervision
+bash ./Docker/build.sh Dockerfile/Debian apache2 web
+bash ./Docker/build.sh Dockerfile/Debian mariadb database
+bash ./Docker/build.sh Dockerfile/Debian glpi ticketing
+bash ./Docker/build.sh Dockerfile/Debian centreon supervision
 ```
 
 ### Complément
