@@ -24,7 +24,7 @@ RUN addgroup marc www-data
 #RUN chown -R www-data:www-data /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
 
 # Utilisateur du conteneur
-USER $USER_NAME
+#USER $USER_NAME
 
 # Port applicatif
 EXPOSE 80
