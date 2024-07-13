@@ -27,14 +27,21 @@ RUN apt install -y php
 ###########################################################################################################################
 # Nettyage #
 ############
-RUN apt-get clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
+RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ###########################################################################################################################
 # Lancement du Conteneur en Utilisateur #
 #########################################
-#RUN mkdir -p /var/run/apache2 /var/lock/apache2 /var/log/apache2
-RUN chown -R marc:admin /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
 USER $USERNAME
+
+###########################################################################################################################
+# Modification des permissions #
+################################
+#/var/run/apache2 /var/lock/apache2 /var/log/apache2
+#RUN mkdir -p 
+
+#/var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
+#RUN chown -R marc:admin
 
 ###########################################################################################################################
 # WorkDir #
