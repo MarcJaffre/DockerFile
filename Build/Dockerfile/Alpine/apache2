@@ -1,6 +1,13 @@
 # Image System
 FROM alpine
 
+# Build Argument
+# ARG 
+
+# UserProfil
+addgroup -g 1000 marc
+adduser -h /home/marc -s /bin/ash -G marc -D -u 1000 marc
+
 # Mise a jour
 RUN apk --no-cache upgrade
 
