@@ -5,5 +5,5 @@ wget https://github.com/glpi-project/glpi/releases/download/$VERSION/glpi-$VERSI
 tar -xf /tmp/glpi.tgz -C /var/www/html;
 
 # Permissions (Apache)
-chown -R www-data:www-data /var/www/html;
+chown -R $USERNAME:$GROUP /var/www/html;
 chmod 755 /var/www/html/glpi;
