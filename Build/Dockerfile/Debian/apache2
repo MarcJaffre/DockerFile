@@ -27,7 +27,7 @@ RUN apt install -y php
 ###########################################################################################################################
 # RESSOURCES #
 ##############
-COPY ./Docker/Build/Ressources/PHP_VERSION.sh
+COPY ./Docker/Build/Ressources/PHP_VERSION.sh /usr/bin/PHP_VERSION
 
 ###########################################################################################################################
 # FIX : Set the 'ServerName' directive globally to suppress this message #
