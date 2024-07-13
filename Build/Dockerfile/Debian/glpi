@@ -23,16 +23,11 @@ APACHE_RUN_GROUP=$GROUP \
 APACHE_RUN_USER=$USERNAME
 
 ##############################################################################################################################################################################################
-# Argument #
-############
-ARG PASS_ROOT_SQL=admin
-
-##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
 COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh       /root/apache2.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/install.sh           /root/php.sh
-
+COPY ./Docker/Build/Ressources/Packages/PHP/glpi.sh              /root/php_glpi.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
 COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean.sh
