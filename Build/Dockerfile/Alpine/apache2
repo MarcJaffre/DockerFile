@@ -10,13 +10,6 @@ ARG GROUP_ID=1000
 RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
 
-
-
-# UserProfil
-#RUN addgroup -g 1000 marc
-#RUN adduser -h /home/marc -s /bin/ash -G marc -D -u 1000 marc
-
-
 # Mise a jour
 RUN apk --no-cache upgrade
 
@@ -24,13 +17,13 @@ RUN apk --no-cache upgrade
 RUN apk add --no-cache apache2
 
 # Installation de PHP
-RUN apk add php
+RUN apk add --no-cache php
 
 # Port applicatif
 EXPOSE 80
 
 # Volume
-VOLUME /var/www/html
+#VOLUME /var/www/html
 
 # WorkDir
 WORKDIR /var/www/html
@@ -40,4 +33,3 @@ ENTRYPOINT ["/usr/sbin/httpd"]
 
 # Argument
 CMD ["-D","FOREGROUND"]
-
