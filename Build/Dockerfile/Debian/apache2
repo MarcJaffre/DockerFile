@@ -27,7 +27,5 @@ RUN apt install -y apache2 apache2-utils
 ###############################################################################################################
 # NETTOYAGE #
 #############
-# RUN apt-get clean autoclean
-# RUN apt-get autoremove --yes
-# RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
+# RUN apt-get clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
