@@ -20,7 +20,8 @@ APACHE_PID_FILE=/var/run/apache2/apache2.pid \
 APACHE_LOG_DIR=/var/log/apache2 \
 APACHE_DOCUMENT_ROOT=/var/www/html/ \
 APACHE_RUN_GROUP=$GROUP \
-APACHE_RUN_USER=$USERNAME
+APACHE_RUN_USER=$USERNAME \
+VERSION=10.0.9
 
 ##############################################################################################################################################################################################
 # Copie de fichier #
