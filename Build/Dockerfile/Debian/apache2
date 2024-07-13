@@ -34,6 +34,12 @@ RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cac
 #########################################
 USER $USERNAME
 
+#(13)Permission denied: AH00091: apache2: could not open error log file /var/log/apache2/error.log.
+#AH00015: Unable to open logs
+#Action '-D FOREGROUND' failed.
+#The Apache error log may have more information.
+
+
 ###########################################################################################################################
 # Modification des permissions #
 ################################
@@ -41,7 +47,26 @@ USER $USERNAME
 #RUN mkdir -p 
 
 #/var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
-#RUN chown -R marc:admin
+#RUN chown -R marc:admin /var/log/apache2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ###########################################################################################################################
 # WorkDir #
