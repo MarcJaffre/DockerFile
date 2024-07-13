@@ -13,6 +13,8 @@ bash ./Docker/build.sh Dockerfile/<OS> <FICHIER> <IMAGE DE SORTIE>
 
 ### Construction
 ```
+clear;
+docker system prune -f;
 bash ./Docker/build.sh Dockerfile/Debian apache2 web
 bash ./Docker/build.sh Dockerfile/Debian mariadb database
 bash ./Docker/build.sh Dockerfile/Debian glpi ticketing
