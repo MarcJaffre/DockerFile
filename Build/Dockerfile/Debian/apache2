@@ -36,11 +36,24 @@ RUN apt install -y apache2 apache2-utils
 RUN apt install -y php
 
 ###########################################################################################################################
+# COPIE DE FICHIERS #
+#####################
+COPY ./Docker/Build/Ressources/PHP/VERSION.sh /usr/bin/PHP_VERSION
+COPY ./Docker/Build/Ressources/Apache2/start.sh /usr/bin/startup.sh
+
+
+
+###########################################################################################################################
 # PHP_VERSION #
 ###############
-COPY ./Docker/Build/Ressources/PHP/VERSION.sh /usr/bin/PHP_VERSION
 RUN chmod +x /usr/bin/PHP_VERSION
 RUN /usr/bin/PHP_VERSION
+
+
+###########################################################################################################################
+# Docker #
+##########
+RUN chmod +x /usr/bin/startup.sh
 
 ###########################################################################################################################
 # FIX : Set the 'ServerName' directive globally to suppress this message #
@@ -83,17 +96,18 @@ VOLUME /var/www/html
 ###########################################################################################################################
 # Ports Applicatifs #
 #####################
-EXPOSE 80
+EXPOSE 80 443
 
 ###########################################################################################################################
 # Commande #
 ############
-ENTRYPOINT ["/usr/sbin/apache2ctl"]
+ENTRYPOINT ["/usr/bin/startup.sh"]
 
 ###########################################################################################################################
 # Argument #
 ############
-CMD ["-D","FOREGROUND"]
+#ENTRYPOINT ["/usr/sbin/apache2ctl"]
+#CMD ["-D","FOREGROUND"]
 
 ###########################################################################################################################
 # Source: https://medium.com/@vv-devopsguru/best-practices-for-running-docker-containers-with-non-root-users-6c9d3dbbd4cb #
