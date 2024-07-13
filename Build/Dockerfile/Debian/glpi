@@ -46,6 +46,7 @@ COPY ./Docker/Build/Ressources/Packages/Web/glpi.sh              /root/glpi.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
 COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean.sh
+
 ##############################################################################################################################################################################################
 # Permissions #
 ###############
