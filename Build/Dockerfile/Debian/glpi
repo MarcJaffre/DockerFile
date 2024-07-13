@@ -4,18 +4,6 @@
 FROM debian
 
 ##############################################################################################################################################################################################
-# GLPI #
-########
-ENV VERSION="10.0.9"
-ENV LANGUE=fr_FR
-ENV HOST=db
-ENV DATABSE=GLPI
-ENV USERNAMEDB=GLPI
-ENV PASSDB=admin
-
-# docker exec -it ticketing rm /var/www/html/glpi/install/install.php
-
-##############################################################################################################################################################################################
 # User & Group #
 ################
 ENV USERNAME=marc \
@@ -34,6 +22,18 @@ APACHE_RUN_GROUP=$GROUP \
 APACHE_RUN_USER=$USERNAME
 
 ##############################################################################################################################################################################################
+# GLPI #
+########
+ENV VERSION="10.0.9"
+ENV LANGUE=fr_FR
+ENV HOST=db
+ENV DATABSE=GLPI
+ENV USERNAMEDB=GLPI
+ENV PASSDB=admin
+
+# docker exec -it ticketing rm /var/www/html/glpi/install/install.php
+
+##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
 
@@ -43,7 +43,7 @@ COPY ./Docker/Build/Ressources/Packages/Outil/wget.sh            /root/wget.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/install.sh           /root/php.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/glpi.sh              /root/php_glpi.sh
 COPY ./Docker/Build/Ressources/Packages/Web/glpi/install.sh      /root/glpi.sh
-COPY ./Docker/Build/Ressources/Packages/Web/glpi/start.sh        /root/start.sh
+COPY ./Docker/Build/Ressources/Packages/Web/glpi/start.sh        /home/marc/start.sh
 
 COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
@@ -53,6 +53,8 @@ COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.s
 # Permissions #
 ###############
 RUN chmod +x /root/*.sh
+RUN chmod +x /home/marc/*.sh
+RUN chown $USERNAME:$GROUPE /home/marc/*.sh
 
 ##############################################################################################################################################################################################
 # Script de construction #
