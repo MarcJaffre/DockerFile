@@ -5,8 +5,8 @@ FROM alpine
 # ARG 
 
 # UserProfil
-addgroup -g 1000 marc
-adduser -h /home/marc -s /bin/ash -G marc -D -u 1000 marc
+RUN addgroup -g 1000 marc
+RUN adduser -h /home/marc -s /bin/ash -G marc -D -u 1000 marc
 
 # Mise a jour
 RUN apk --no-cache upgrade
