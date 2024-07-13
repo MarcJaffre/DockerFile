@@ -1,1 +1,1 @@
-apt update;
+apt update 1>/dev/null;
