@@ -27,19 +27,19 @@ FROM debian
 #COPY ./Docker/Build/Ressources/Packages/Apache2/apache2.sh   /root/apache2.sh
 #COPY ./Docker/Build/Ressources/Packages/PHP/php.sh           /root/php.sh
 #COPY ./Docker/Build/Ressources/System/useradd.sh             /root/useradd.sh
-#COPY ./Docker/Build/Ressources/System/apt_update.sh          /root/apt_update.sh
+COPY ./Docker/Build/Ressources/System/apt_update.sh          /root/apt_update.sh
 #COPY ./Docker/Build/Ressources/System/apt_clean.sh           /root/apt_clean.sh
 
 ##############################################################################################################################################################################################
 # Permissions #
 ###############
-#RUN chmod +x /root/*.sh
+RUN chmod +x /root/*.sh
 
 ##############################################################################################################################################################################################
 # Script de construction #
 ##########################
 #RUN bash -c '/root/useradd.sh'
-#RUN bash -c '/root/apt_update.sh'
+RUN bash -c '/root/apt_update.sh'
 #RUN bash -c '/root/apache2.sh'
 #RUN bash -c '/root/php.sh'
 
