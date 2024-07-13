@@ -1,6 +1,7 @@
 # Telecharger le code Source 
 ```
 clear;
+cd /root;
 rm -r ./Docker 2>/dev/null;
 git clone https://github.com/MarcJaffre/Docker.git 2>/dev/null;
 ```
