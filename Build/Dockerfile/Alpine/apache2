@@ -26,10 +26,10 @@ RUN chown marc:marc /usr/sbin/httpd
 EXPOSE 80
 
 # Volume
-VOLUME /var/www/html
+#VOLUME /var/www/html
 
 # WorkDir
-WORKDIR /var/www/html
+#WORKDIR /var/www/html
 
 # Commande
 ENTRYPOINT ["/usr/sbin/httpd"]
