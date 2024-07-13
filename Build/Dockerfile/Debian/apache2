@@ -14,10 +14,10 @@ ENV GUID=1000
 ##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
-COPY ./Docker/Build/Ressources/Packages/apache2.sh   /root/apache2.sh
-COPY ./Docker/Build/Ressources/Packages/PHP/php.sh   /root/php.sh
-COPY ./Docker/Build/Ressources/System/useradd.sh     /root/useradd.sh
-COPY ./Docker/Build/Ressources/System/apt_update.sh  /root/apt_update.sh
+COPY ./Docker/Build/Ressources/Packages/Apache2/apache2.sh   /root/apache2.sh
+COPY ./Docker/Build/Ressources/Packages/PHP/php.sh           /root/php.sh
+COPY ./Docker/Build/Ressources/System/useradd.sh             /root/useradd.sh
+COPY ./Docker/Build/Ressources/System/apt_update.sh          /root/apt_update.sh
 
 ##############################################################################################################################################################################################
 # Permissions #
