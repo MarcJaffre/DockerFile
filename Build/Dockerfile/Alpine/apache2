@@ -18,7 +18,7 @@ RUN apk add --no-cache php
 # Creation du group et utilisateur
 RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
-RUN addgroup marc www-data apache
+RUN addgroup marc apache
 
 # Permission
 #RUN mkdir -p /var/run/apache2 /var/lock/apache2 /var/log/apache2
