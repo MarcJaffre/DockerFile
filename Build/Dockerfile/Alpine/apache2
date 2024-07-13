@@ -2,14 +2,23 @@
 FROM alpine
 
 # Mise a jour
-RUN apk update && apk upgrade
+RUN apk --no-cache upgrade
 
 # Installation du serveur Web
-RUN apk add apache2
-RUN apk add apache2-utils
+RUN apk add --no-cache apache2
+
+# Supplements
+RUN mkdir /run/apache2
+
+# Port applicatif
+EXPOSE 80
 
 # Volume
 VOLUME /var/www/html
 
-# Port applicatif
-EXPOSE 80
+# Commande
+ENTRYPOINT ["/usr/sbin/httpd"]
+
+# Argument
+CMD ["-D","FOREGROUND"]
+
