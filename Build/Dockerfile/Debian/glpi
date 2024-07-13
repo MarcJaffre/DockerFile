@@ -42,7 +42,8 @@ COPY ./Docker/Build/Ressources/Packages/Outil/curl.sh            /root/curl.sh
 COPY ./Docker/Build/Ressources/Packages/Outil/wget.sh            /root/wget.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/install.sh           /root/php.sh
 COPY ./Docker/Build/Ressources/Packages/PHP/glpi.sh              /root/php_glpi.sh
-COPY ./Docker/Build/Ressources/Packages/Web/glpi.sh              /root/glpi.sh
+COPY ./Docker/Build/Ressources/Packages/Web/glpi/install.sh      /root/glpi.sh
+COPY ./Docker/Build/Ressources/Packages/Web/glpi/start.sh        /root/start.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
 COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean.sh
@@ -94,6 +95,8 @@ RUN  ln -sf /dev/stdout /var/log/apache2/access.log
 # Commande #
 ############
 #ENTRYPOINT ["/usr/sbin/apache2ctl"]
+
+ENTRYPOINT ["start.sh"]
 
 ##############################################################################################################################################################################################
 # Argument #
