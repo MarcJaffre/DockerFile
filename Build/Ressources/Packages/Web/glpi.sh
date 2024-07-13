@@ -1,15 +1,15 @@
-# Telecharger GLPI
-wget https://github.com/glpi-project/glpi/releases/download/$VERSION/glpi-$VERSION.tgz -O /tmp/glpi.tgz
+#######################################################################################################################################
+#  Fuseau Horaire #
+###################
+PHP_VERSION=$(php -version | head -n 1 | cut -d "P" -f3 | cut -c 2-4)
 
-# Extraire le fichier compresser
-tar -xf /tmp/glpi.tgz -C /var/www/html;
-
-# Permissions (Apache)
-chown -R $USERNAME:$GROUP /var/www/html;
-chmod 755 /var/www/html/glpi;
+# Substitution de ;date.timezone = en date.timezone= Europe/Paris
+sed -i -e "s/;date.timezone \=/date.timezone \= Europe\/Paris/g" /etc/php/$PHP_VERSION/apache2/php.ini;
 
 
-
+#######################################################################################################################################
+# Apache2 pour GLPI #
+#####################
 cat > /etc/apache2/sites-available/000-default.conf << EOF
 <VirtualHost *:80>
  # Nom du serveur (/etc/hosts)
@@ -39,3 +39,17 @@ cat > /etc/apache2/sites-available/000-default.conf << EOF
  </Directory>
 </VirtualHost>
 EOF
+
+#######################################################################################################################################
+# Deploiement de GLPI #
+#######################
+# Telecharger GLPI
+wget https://github.com/glpi-project/glpi/releases/download/$VERSION/glpi-$VERSION.tgz -O /tmp/glpi.tgz
+
+# Extraire le fichier compresser
+tar -xf /tmp/glpi.tgz -C /var/www/html;
+
+# Permissions (Apache)
+chown -R $USERNAME:$GROUP /var/www/html;
+chmod 755 /var/www/html/glpi;
+
