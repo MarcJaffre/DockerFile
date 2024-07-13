@@ -21,6 +21,7 @@ RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_N
 
 # Permission
 RUN chown marc:marc /usr/sbin/httpd
+RUN chown marc:marc /var/www
 
 # Port applicatif
 EXPOSE 80
