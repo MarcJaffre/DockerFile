@@ -49,12 +49,6 @@ COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean
 COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
 
-##############################################################################################################################################################################################
-# Permissions #
-###############
-RUN chmod +x /root/*.sh
-RUN chmod +x /home/marc/*.sh
-RUN chown $USERNAME:$GROUP /home/marc/start.sh
 
 ##############################################################################################################################################################################################
 # Script de construction #
@@ -72,6 +66,17 @@ RUN bash -c '/root/glpi.sh'
 # Script de Nettoyage #
 #######################
 RUN bash -c '/root/apt_clean.sh'
+
+
+##############################################################################################################################################################################################
+# Permissions #
+###############
+RUN chmod +x /root/*.sh
+RUN chmod +x /home/marc/*.sh
+RUN chown $USERNAME:$GROUP /home/marc/start.sh
+
+
+
 
 ##############################################################################################################################################################################################
 # WorkDir #
