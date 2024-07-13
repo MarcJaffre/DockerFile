@@ -3,3 +3,6 @@ FROM alpine
 
 # Mise a jour
 RUN apk update && apk upgrade
+
+# Installation du serveur Web
+RUN apk add apache2
