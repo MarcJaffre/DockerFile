@@ -25,4 +25,4 @@ RUN apt install -y mariadb-server
 
 
 
-CMD tail -f /var/log/mariadb/mariadb.log
+CMD ["tail -f /var/log/mariadb/mariadb.log"]
