@@ -20,6 +20,9 @@ RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
 RUN addgroup marc www-data
 
+# Permission
+RUN chown -R www-data:www-data /var/run/apache2 /var/lock/apache2 /var/log/apache2 /var/www/html
+
 # Utilisateur du conteneur
 USER $USER_NAME
 
