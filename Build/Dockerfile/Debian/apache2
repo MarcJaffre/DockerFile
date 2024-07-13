@@ -30,17 +30,6 @@ RUN apt install -y php
 RUN apt clean autoclean && apt autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 ###########################################################################################################################
-# Lancement du Conteneur en Utilisateur #
-#########################################
-USER $USERNAME
-
-#(13)Permission denied: AH00091: apache2: could not open error log file /var/log/apache2/error.log.
-#AH00015: Unable to open logs
-#Action '-D FOREGROUND' failed.
-#The Apache error log may have more information.
-
-
-###########################################################################################################################
 # Modification des permissions #
 ################################
 RUN mkdir -p /var/lock/apache2 
@@ -53,6 +42,10 @@ RUN chown -R marc:admin /var/run/apache2
 RUN chown -R marc:admin /var/www/html
 
 
+###########################################################################################################################
+# Lancement du Conteneur en Utilisateur #
+#########################################
+USER $USERNAME
 
 
 
