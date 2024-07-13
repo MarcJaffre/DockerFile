@@ -10,9 +10,6 @@ ARG GROUP_ID=1000
 RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
 
-# Username
-USER $USER
-
 # Mise a jour
 RUN apk --no-cache upgrade
 
@@ -21,6 +18,9 @@ RUN apk add --no-cache apache2
 
 # Installation de PHP
 RUN apk add --no-cache php
+
+# Username
+USER $USER_NAME
 
 # Port applicatif
 EXPOSE 80
