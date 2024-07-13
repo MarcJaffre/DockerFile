@@ -1,19 +1,19 @@
 ##############################################################################################################################
 # Modules PHP pour GLPI #
 #########################
-apt install -y php-curl;
-apt install -y php-gd;
-apt install -y php-intl;
-apt install -y php-mysqli;
-apt install -y php-simplexml 
-apt install -y php-bz2;
-apt install -y php-ldap;
-apt install -y php-mbstring;
-apt install -y php-symfony-polyfill-ctype;
-apt install -y php-zip;
+apt install -y php-curl                   2>/dev/null;
+apt install -y php-gd                     2>/dev/null;
+apt install -y php-intl                   2>/dev/null;
+apt install -y php-mysqli                 2>/dev/null;
+apt install -y php-simplexml              2>/dev/null;
+apt install -y php-bz2                    2>/dev/null;
+apt install -y php-ldap                   2>/dev/null;
+apt install -y php-mbstring               2>/dev/null;
+apt install -y php-symfony-polyfill-ctype 2>/dev/null;
+apt install -y php-zip                    2>/dev/null;
 
 
 ##############################################################################################################################
 # Activation du module Rewrite #
 ################################
-a2enmod rewrite
+a2enmod rewrite;
