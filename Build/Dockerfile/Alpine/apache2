@@ -4,11 +4,18 @@ FROM alpine
 # Build Argument
 ARG USER_NAME=marc
 ARG USER_ID=1000
-ARG GROUP_ID=$USER_ID
+ARG GROUP_ID=1000
+
+# UserProfil
+RUN addgroup -g $GROUP_ID $USER_NAME
+RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
+
+
 
 # UserProfil
 #RUN addgroup -g 1000 marc
 #RUN adduser -h /home/marc -s /bin/ash -G marc -D -u 1000 marc
+
 
 # Mise a jour
 RUN apk --no-cache upgrade
