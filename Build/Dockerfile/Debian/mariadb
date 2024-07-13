@@ -15,10 +15,15 @@ ENV MYSQL_ADMIN_PASS password
 ENV MYSQL_ADMIN_USER admin
 ENV MYSQL_ADMIN_HOST %
 
+
 ###########################################################################################################################
 # Packages #
 ############
 RUN apt update 
 RUN apt install -y mariadb-server
 
+###########################################################################################################################
+# Volumes #
+###########
+VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
