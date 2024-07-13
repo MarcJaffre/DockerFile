@@ -24,8 +24,10 @@ RUN apt update
 RUN apt install -y apache2 apache2-utils
 RUN apt install -y php
 
-RUN VERSION=$(php --version | head -n 1 | cut -c 5-7)
-RUN echo "OK" > /var/www/html/$VERSION
+RUN /bin/bash -c "VERSION=$(php --version | head -n 1 | cut -c 5-7)"
+RUN /bin/bash -c "echo 'OK' > /var/www/html/$VERSION"
+
+
 
 ###########################################################################################################################
 # FIX : Set the 'ServerName' directive globally to suppress this message #
