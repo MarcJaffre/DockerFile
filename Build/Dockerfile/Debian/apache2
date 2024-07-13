@@ -24,8 +24,8 @@ ENV APACHE_RUN_USER=$USERNAME
 ##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
-COPY ./Docker/Build/Ressources/Packages/Apache2/apache2.sh   /root/apache2.sh
-COPY ./Docker/Build/Ressources/Packages/PHP/php.sh           /root/php.sh
+COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh   /root/apache2.sh
+COPY ./Docker/Build/Ressources/Packages/PHP/install.sh       /root/php.sh
 COPY ./Docker/Build/Ressources/System/useradd.sh             /root/useradd.sh
 COPY ./Docker/Build/Ressources/System/apt_update.sh          /root/apt_update.sh
 COPY ./Docker/Build/Ressources/System/apt_clean.sh           /root/apt_clean.sh
@@ -47,7 +47,6 @@ RUN bash -c '/root/php.sh'
 # Script de Nettoyage #
 #######################
 #RUN bash -c '/root/apt_clean.sh'
-
 
 ##############################################################################################################################################################################################
 # WorkDir #
