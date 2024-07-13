@@ -54,7 +54,7 @@ COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.s
 ###############
 RUN chmod +x /root/*.sh
 RUN chmod +x /home/marc/*.sh
-RUN chown $USERNAME:$GROUPE /home/marc/start.sh
+RUN chown $USERNAME:$GROUP /home/marc/start.sh
 
 ##############################################################################################################################################################################################
 # Script de construction #
