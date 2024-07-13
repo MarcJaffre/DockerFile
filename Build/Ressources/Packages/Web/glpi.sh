@@ -55,3 +55,9 @@ tar -xf /tmp/glpi.tgz -C /var/www/html;
 # Permissions (Apache)
 chown -R $USERNAME:$GROUP /var/www/html;
 chmod 755 /var/www/html/glpi;
+
+#######################################################################################################################################
+# Installation du site #
+########################
+/var/www/html/glpi/bin/console db:install --reconfigure \
+--default-language=$LANGUE --db-host=$HOST --db-port=3306 --db-name=$DATABSE --db-user=$USERNAMEDB --db-password=$PASSDB --force;
