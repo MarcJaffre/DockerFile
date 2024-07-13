@@ -19,6 +19,9 @@ RUN apk add --no-cache php
 RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
 
+# Permission
+RUN chown marc:marc /usr/sbin/httpd
+
 # Port applicatif
 EXPOSE 80
 
