@@ -19,14 +19,12 @@ ARG PASS_ROOT_SQL=admin
 ##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
-COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
-COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
 COPY ./Docker/Build/Ressources/Packages/MariaDB/install.sh       /root/mariadb.sh
-#COPY ./Docker/Build/Ressources/Packages/MariaDB/mysql_secure.sh  /root/mysql_secure.sh
-#COPY ./Docker/Build/Ressources/Packages/MariaDB/unlock.sh        /root/mysql_unlock.sh
+COPY ./Docker/Build/Ressources/Packages/MariaDB/mysql_secure.sh  /root/mysql_secure.sh
+COPY ./Docker/Build/Ressources/Packages/MariaDB/unlock.sh        /root/mysql_unlock
 COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean.sh
-
-
+COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
+COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.shsh
 
 ##############################################################################################################################################################################################
 # Permissions #
