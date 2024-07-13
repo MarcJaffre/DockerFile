@@ -25,9 +25,9 @@ RUN apt install -y apache2 apache2-utils
 RUN apt install -y php
 
 ###########################################################################################################################
-# RESSOURCES #
-##############
-COPY ./Docker/Build/Ressources/PHP_VERSION.sh /usr/bin/PHP_VERSION
+# PHP_VERSION #
+###############
+COPY ./Docker/Build/Ressources/PHP/VERSION.sh /usr/bin/PHP_VERSION
 RUN chmod +x /usr/bin/PHP_VERSION
 RUN /usr/bin/PHP_VERSION
 
