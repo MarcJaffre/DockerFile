@@ -20,15 +20,18 @@ ENV APACHE_LOG_DIR=/var/log/apache2
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/
 ENV APACHE_RUN_GROUP=$GROUP
 ENV APACHE_RUN_USER=$USERNAME
+ARG PASS_ROOT_SQL=admin
 
 ##############################################################################################################################################################################################
 # Copie de fichier #
 ####################
-COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh   /root/apache2.sh
-COPY ./Docker/Build/Ressources/Packages/PHP/install.sh       /root/php.sh
-COPY ./Docker/Build/Ressources/System/useradd.sh             /root/useradd.sh
-COPY ./Docker/Build/Ressources/System/apt_update.sh          /root/apt_update.sh
-COPY ./Docker/Build/Ressources/System/apt_clean.sh           /root/apt_clean.sh
+COPY ./Docker/Build/Ressources/Packages/Apache2/install.sh       /root/apache2.sh
+COPY ./Docker/Build/Ressources/Packages/MariaDB/install.sh       /root/mariadb.sh
+COPY ./Docker/Build/Ressources/Packages/MariaDB/mysql_secure.sh  /root/mysql_secure.sh
+COPY ./Docker/Build/Ressources/Packages/PHP/install.sh           /root/php.sh
+COPY ./Docker/Build/Ressources/System/useradd.sh                 /root/useradd.sh
+COPY ./Docker/Build/Ressources/System/apt_update.sh              /root/apt_update.sh
+COPY ./Docker/Build/Ressources/System/apt_clean.sh               /root/apt_clean.sh
 
 ##############################################################################################################################################################################################
 # Permissions #
@@ -42,6 +45,8 @@ RUN bash -c '/root/useradd.sh'
 RUN bash -c '/root/apt_update.sh'
 RUN bash -c '/root/apache2.sh'
 RUN bash -c '/root/php.sh'
+RUN bash -c '/root/mariadb.sh'
+RUN bash -c '/root/mysql_secure.sh'
 
 ##############################################################################################################################################################################################
 # Script de Nettoyage #
