@@ -5,4 +5,4 @@
 
 
 mkdir -p /var/lib/mysql /var/run/mysqld;
-chown -R $USERNAME:$GROUP /var/lib/mysql /var/run/mysqld;
+chown -R $USERNAME:$GROUP /var/lib/mysql /var/run/mysqld /var/run/mysqld;
