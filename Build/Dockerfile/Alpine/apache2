@@ -18,9 +18,10 @@ RUN apk add --no-cache php
 # Creation User
 RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
+RUN addgroup marc www-data
 
 # Utilisateur du conteneur
-# USER $USER_NAME
+USER $USER_NAME
 
 # Port applicatif
 EXPOSE 80
