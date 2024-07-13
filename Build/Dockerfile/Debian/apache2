@@ -21,8 +21,7 @@ ARG GID=1000
 # SupervisorD #
 ###############
 RUN apt update 
-RUN apt install -y supervisor
-RUN mkdir -p /var/log/supervisor
+RUN apt install -y apache2 apache2-utils
 
 
 ###############################################################################################################
@@ -32,5 +31,3 @@ RUN mkdir -p /var/log/supervisor
 # RUN apt-get autoremove --yes
 # RUN rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-
-CMD ["/usr/bin/supervisord"]
