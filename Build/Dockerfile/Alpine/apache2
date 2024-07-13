@@ -20,6 +20,7 @@ RUN addgroup -g $GROUP_ID $USER_NAME
 RUN adduser -h /home/$USER_NAME -s /bin/ash -G $USER_NAME -D -u $USER_ID $USER_NAME
 
 # Permission
+RUN mkdir -p /var/www/logs
 RUN chown -R marc:marc /usr/sbin/httpd
 RUN chown -R marc:marc /var/www
 
