@@ -1,0 +1,29 @@
+################
+version: '3.8' #
+services:      #
+################
+#
+######################################
+  AirSonic:
+    container_name: 'airsonic'
+    image: 'linuxserver/airsonic'
+    network_mode: 'bridge'
+    restart: 'unless-stopped'
+    hostname: 'airsonic'
+    domainname: 'labs'
+    environment:
+      PUID: ''
+      PGID: ''
+      TZ: 'Europe/Paris'
+    ports:
+      - '4040:4040' # WebUI
+    volumes:
+      - 'AirSonic:/config'
+      - 'AirSonic:/media'
+      - 'AirSonic:/playlists'
+      - 'AirSonic:/podcasts'
+######################################
+volumes:
+ AirSonic:
+  external: false
+######################################
