@@ -1,0 +1,22 @@
+version: '2.1'
+services:
+  CouchPotato:
+    container_name: 'couchpotato'
+    image: 'linuxserver/couchpotato'
+    network_mode: 'bridge'
+    restart: 'unless-stopped'
+    hostname: 'couchpotato'
+    domainname: 'labs'
+    environment:
+      PUID: ''
+      PGID: ''
+      TZ: 'Europe/Paris'
+    ports:
+      - '5050:5050' # WebUI
+    volumes:
+      - 'CouchPotato:/config'
+      - 'CouchPotato:/downloads'
+      - 'CouchPotato:/movies'
+volumes:
+ CouchPotato:
+  external: false
