@@ -1,0 +1,22 @@
+version: '2.1'
+services:
+  Bazarr:
+    container_name: 'bazarr'
+    image: 'linuxserver/bazarr'
+    network_mode: 'bridge'
+    restart: 'unless-stopped'
+    hostname: 'bazarr'
+    domainname: 'labs'
+    environment:
+      PUID: ''
+      PGID: ''
+      TZ: 'Europe/Paris'
+    ports:
+      - '6767:6767' # WebUI
+    volumes:
+      - 'Bazarr:/config'
+      - 'Bazarr:/movies'
+      - 'Bazarr:/tv'
+volumes:
+ Bazarr:
+  external: false
