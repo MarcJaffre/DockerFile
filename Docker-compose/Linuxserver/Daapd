@@ -1,24 +1,24 @@
 version: '2.1'
 services:
-  Daapd:
-    container_name: 'daapd'
-    image: 'linuxserver/daapd'
-    network_mode: 'bridge'
-    restart: 'unless-stopped'
-    hostname: 'daapd'
-    domainname: 'labs'
-    environment:
-      PUID: ''
-      PGID: ''
-      TZ: 'Europe/Paris'
-    volumes:
-      - 'Daapd:/config'
-      - 'Daapd:/Podcasts'
-      - 'Daapd:/Audiobooks'
-      - 'Daapd:/Compilations'
-    ports:
-      - '3689:3689/tcp' # WebUI
-#      - '3689:3688'
+ Daapd:
+  container_name: 'daapd'
+  image: 'linuxserver/daapd'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'daapd'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+    TZ: 'Europe/Paris'
+  volumes:
+   - 'Daapd:/config'
+   - 'Daapd:/Podcasts'
+   - 'Daapd:/Audiobooks'
+   - 'Daapd:/Compilations'
+  ports:
+   - '3689:3689/tcp' # WebUI
+   - '3689:3688'
 volumes:
  Daapd:
   external: false
