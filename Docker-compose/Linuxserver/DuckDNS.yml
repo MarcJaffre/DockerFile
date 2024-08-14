@@ -1,0 +1,24 @@
+version: '2.1'
+services:
+ DuckDNS:
+  image: 'linuxserver/duckdns'
+  container_name: 'duckdns'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'duckdns'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+   SUBDOMAINS: 'domain1.com,domain2.com'
+   TOKEN: 'XXXXXX'
+   LOG_FILE: 'true'
+  ports:
+   - '80:80' # WebUI
+  volumes:
+   - 'DuckDNS:/config'
+
+volumes:
+ DuckDNS:
+  external: false
