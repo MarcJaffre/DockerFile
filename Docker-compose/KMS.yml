@@ -1,0 +1,21 @@
+################
+version: '3.8' #
+services:      #
+################
+#
+###########################################################################
+# docker-compose -f kms.yml up -d
+# docker-compose -f kms.yml down
+###########################################################################
+# Activation de Microsoft Office VLK et Windows Client et serveur
+ Microsoft:
+  image: 'mikolatero/vlmcsd'
+  container_name: 'kms'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'kms'
+  ports:
+   - '1688:1688'
+  labels:
+   Cacher: 'Non'
+###########################################################################
