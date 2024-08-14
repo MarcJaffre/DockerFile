@@ -1,0 +1,53 @@
+################
+version: '3.8' #
+services:      #
+################
+#
+####################################################################################
+ Handbrake:
+  image: 'jlesage/handbrake'
+  container_name: 'Handbrake'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'Handbrake'
+  environment:
+   GROUP_ID: '0'
+   USER_ID:  '0'
+  volumes:
+   # ------------------------------------------------ #
+   - 'Handbrake_config:/config'   # Configuration
+   # ------------------------------------------------ #
+   # Supplémentaire
+   - 'Handbrake_trash:/trash'     # Poubelle
+   - 'Handbrake_watch:/watch'     # Prévisualisé
+   # ------------------------------------------------ #
+   # Dossier d'entrée de conversion
+   - 'Handbrake_storage:/storage'
+   - 'DOWNLOAD:/storage/download'
+   # ------------------------------------------------ #
+   # Dossier de sortie
+   - 'HANDBRAKE:/output'
+   # ------------------------------------------------ #
+  ports:
+   - '5800:5800'
+  labels:
+   Cacher: 'Non'
+####################################################################################
+#
+#
+####################################################################################
+volumes:
+ # --------------------------------------------------------------------------------
+ Handbrake_config:
+  external: false
+
+ Handbrake_storage:
+  external: false
+
+ Handbrake_trash:
+  external: false
+
+ Handbrake_watch:
+  external: false
+ # --------------------------------------------------------------------------------
+####################################################################################
