@@ -1,0 +1,22 @@
+version: '2.1'
+services:
+ DillinGer:
+  image: 'linuxserver/dillinger'
+  container_name: 'dillinger'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'dillinger'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+  ports:
+   - '8080:8080' # WebUI
+  volumes:
+   - 'DillinGer:/config'
+
+
+volumes:
+ DillinGer:
+  external: false
