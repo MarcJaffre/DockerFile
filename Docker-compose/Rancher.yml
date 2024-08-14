@@ -1,0 +1,28 @@
+################
+version: "3.3" #
+services:      #
+################
+#
+#
+################################################################################
+ Rancher:
+  image: 'rancher/server'
+  container_name: 'Rancher'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'Rancher'
+  volumes:
+   - 'log:/var/log/mysql'
+   - 'mysql:/var/lib/mysql'
+   - 'cattle:/var/lib/cattle'
+  ports:
+   - '8081:8080'
+################################################################################
+volumes:
+ log:
+  external: false
+ mysql:
+  external: false
+ cattle:
+  external: false
+################################################################################
