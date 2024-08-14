@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+ DigiKam:
+  image: 'linuxserver/digikam'
+  container_name: 'digikam'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'digikam'
+  domainname: 'labs'
+  environment:
+    PUID: ''
+    PGID: ''
+    TZ: 'Europe/Paris'
+  ports:
+    - '3000:3000' # WebUI
+  volumes:
+    - 'DigiKam:/config'
+
+volumes:
+ DigiKam:
+  external: false
