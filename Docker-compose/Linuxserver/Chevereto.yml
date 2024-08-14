@@ -1,0 +1,25 @@
+version: '2.1'
+services:
+  Chevereto:
+    container_name: 'chevereto'
+    image: 'linuxserver/chevereto'
+    network_mode: 'bridge'
+    restart: 'unless-stopped'
+    hostname: 'chevereto'
+    domainname: 'labs'
+    #external_links:
+    #  - '<NOM DU SERVICE>:mysql'
+    #links:
+    #  - '<NOM DU CONTENEUR>:mysql'
+    environment:
+      PUID: ''
+      PGID: ''
+      TZ: 'Europe/Paris'
+    ports:
+      - '80:80' # WebUI
+    volumes:
+      - 'Chevereto:/config'
+      - 'Chevereto:/data'
+volumes:
+ Chevereto:
+  external: false
