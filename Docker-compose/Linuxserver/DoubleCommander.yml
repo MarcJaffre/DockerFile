@@ -1,0 +1,22 @@
+version: '2.1'
+services:
+ DoubleCommander:
+  image: 'linuxserver/doublecommander'
+  container_name: 'doublecommander'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'doublecommander'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+  ports:
+   - '3000:3000' # WebUI
+  volumes:
+   - 'DoubleCommander:/config'
+   - 'DoubleCommander:/data'
+
+volumes:
+ DoubleCommander:
+  external: false
