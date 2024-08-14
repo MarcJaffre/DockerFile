@@ -1,0 +1,28 @@
+################
+version: '3.7' #
+services:      #
+################
+#
+################################################################ 
+ keepassxc:
+  image: 'lscr.io/linuxserver/keepassxc:latest'
+  container_name: 'keepassxc'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'Keepass'
+  security_opt:
+   - 'seccomp:unconfined' #optional
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Etc/Paris'
+  volumes:
+  - 'keepassxc:/config'
+  ports:
+  - '3004:3000'
+  - '3005:3001'
+################################################################
+#
+################################################################
+volumes:
+ keepassxc:
