@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+ Davos:
+  container_name: 'davos'
+  image: 'linuxserver/davos'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'davos'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+  ports:
+   - '8080:8080/tcp' #WebUI
+  volumes:
+   - 'Davos:/config'
+   - 'Davos:/download'
+volumes:
+ Davos:
+  external: false
