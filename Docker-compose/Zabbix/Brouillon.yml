@@ -1,0 +1,128 @@
+################
+version: '3.7' #
+services:      #
+################
+#
+#
+##################################################################################
+# EN COURS DE TEST DE FONCTIONNEMENT                                             #
+# https://www.zabbix.com/documentation/current/en/manual/installation/containers #
+# https://github.com/dexter74/Archives/blob/main/Docker/V2/Stack/Zabbix          #
+##################################################################################
+#
+#
+###############################################################
+# Empty - MySQL server instance                               #
+###############################################################
+ MYSQL:                                                       #
+  # --------------------------------------------------------- #
+  image: 'mysql:8.0-oracle'                                   #
+  container_name: 'Zabbix_MYSQL'                              #
+  network_mode: 'bridge'                                      #
+  # --------------------------------------------------------- #
+  restart: 'unless-stopped'                                   #
+  # --------------------------------------------------------- #
+  hostname: 'MYSQL'                                           #
+  # --------------------------------------------------------- #
+  command: [ 
+   'mysqld', 
+   '--character-set-server=utf8', 
+   '--collation-server=utf8_bin', 
+   '--default-authentication-plugin=mysql_native_password' ]
+  # --------------------------------------------------------- #
+  environment:                                                #
+   MYSQL_DATABASE: 'zabbix'                                   #
+   MYSQL_USER: 'zabbix'                                       #
+   MYSQL_PASSWORD: 'zabbix'                                   #
+   MYSQL_ROOT_PASSWORD: 'root'                                #
+  # --------------------------------------------------------- #
+  volumes:                                                    #
+   - 'Data_Mysql:/var/lib/mysql'                              #
+###############################################################
+#
+#
+###############################################################
+# Zabbix server instance                                      #
+###############################################################
+ Zabbix-Server-MYSQL:                                         #
+  # --------------------------------------------------------- #
+  image: 'zabbix/zabbix-server-mysql:alpine-6.4-latest'       #
+  container_name: 'Zabbix-Server-MYSQL'                       #
+  network_mode: 'bridge'                                      #
+  # --------------------------------------------------------- #
+  restart: 'unless-stopped'                                   #
+  # --------------------------------------------------------- #
+  hostname: 'Zabbix-Server-MYSQL'                             #
+  # --------------------------------------------------------- #
+  #depends_on:                                                #
+  # - 'MYSQL'                                                 #
+  # --------------------------------------------------------- #
+  external_links:                                             #
+   - 'MYSQL:db'                                               #
+  # --------------------------------------------------------- #
+  #links:                                                     #
+  # - 'MYSQL:db'                                              #
+  # --------------------------------------------------------- #
+  environment:                                                #
+   # -------------------------------------------------------- #
+   DB_SERVER_HOST: 'db'                                       #
+   DB_SERVER_PORT: '3306'                                     #
+   # -------------------------------------------------------- #
+   MYSQL_DATABASE: 'zabbix'                                   #
+   MYSQL_USER: 'zabbix'                                       #
+   MYSQL_PASSWORD: 'zabbix'                                   #
+   MYSQL_ROOT_PASSWORD: 'root'                                #
+  #ZBX_SERVER_NAME: 'Zabbix Server V1'                        #
+   # -------------------------------------------------------- #
+#   ZBX_JAVAGATEWAY: 'zabbix-java-gateway'                     #
+  # --------------------------------------------------------- #
+#  ports:                                                      #
+#   - '10051:10051'                                            #
+###############################################################
+#
+#
+###############################################################
+# Zabbix Agent                                                #
+# Zabbix_Agent:                                                #
+  # --------------------------------------------------------- #
+#  image: 'zabbix/zabbix-agent'                                #
+#  container_name: 'Zabbix_Agent'                              #
+#  network_mode: 'bridge'                                      #
+  # --------------------------------------------------------- #
+#  restart: 'unless-stopped'                                   #
+  # --------------------------------------------------------- #
+#  hostname: 'Zabbix-Server-MYSQL'                             #
+#  domainname: 'XXXX.YYYY'                                     #
+###############################################################
+#
+
+###############################################################
+# Zabbix Java gateway instance                                #
+###############################################################
+ Zabbix_Java_Gateway:                                         #
+ # ---------------------------------------------------------- #
+  image: 'zabbix/zabbix-java-gateway:alpine-6.4-latest'       #
+  container_name: 'Zabbix_Java_Gateway'                       #
+  network_mode: 'bridge'                                      #
+  # --------------------------------------------------------- #
+  restart: 'unless-stopped'                                   #
+  # --------------------------------------------------------- #
+  hostname: 'Zabbix_Java_Gateway'                             #
+  domainname: 'XXXX.YYYY'                                     #
+  # --------------------------------------------------------- #
+  ports:                                                      #
+   - '10052:10052'                                            #
+###############################################################
+#
+#
+###############################################################
+volumes:                                                      #
+ Data_Mysql:                                                  #
+  external: false                                             #
+                                                              #
+ zabbix_snmptraps:                                            #
+  external: false                                             #
+                                                              #
+ zabbix_export:                                               #
+  external: false                                             #
+###############################################################
