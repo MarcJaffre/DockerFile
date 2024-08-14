@@ -4,6 +4,7 @@ services:      #
 ################
 #
 ###################################################################
+# Dependance: mariabDB                                            #
 # DATABASE: default | USER: myusername | PASS: mypassword         #
 # Token: admin                                                    #
 ###################################################################
@@ -82,7 +83,7 @@ services:      #
    DUO_HOST: ''                                                   #
    # ------------------------------------------------------------ #
    # SMTP EMAIL                                                   #
-   _ENABLE_SMTP: 'true'                                           #
+   _ENABLE_SMTP: 'false'                                           #
    USE_SENDMAIL: 'false'                                          #
    SENDMAIL_COMMAND: ''                                           #
    SMTP_HOST: 'smtp.gmail.com'                                    #
@@ -108,7 +109,9 @@ services:      #
    # ------------------------------------------------------------ #
    # READ-ONLY CONFIG                                             #
    DATA_FOLDER: 'data'                                            #
+   # ------------------------------------------------------------ #
    DATABASE_URL: 'mysql://myusername:mypassword@db:3306/default'  #
+   # ------------------------------------------------------------ #
    ICON_CACHE_FOLDER: 'data/icon_cache'                           #
    ATTACHMENTS_FOLDER: 'data/attachments'                         #
    SENDS_FOLDER: 'data/sends'                                     #
