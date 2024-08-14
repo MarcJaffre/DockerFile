@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+ DokuWiki:
+  image: 'linuxserver/dokuwiki'
+  container_name: 'dokuwiki'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'DokuWiki'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+  ports:
+   - '80:80' # WebUI
+  volumes:
+   - 'DokuWiki:/config'
+
+volumes:
+ DokuWiki:
+  external: false
