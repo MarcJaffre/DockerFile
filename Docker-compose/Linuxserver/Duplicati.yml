@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+ Duplicati:
+  image: 'linuxserver/duplicati'
+  container_name: 'duplicati'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'duplicati'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+  ports:
+   - '8200:8200' # WebUI
+  volumes:
+   - 'Duplicati:/config'
+   - 'Duplicati:/backups'
+   - 'Duplicati:/source'
+
+volumes:
+ Duplicati:
+  external: false
