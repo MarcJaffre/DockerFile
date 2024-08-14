@@ -1,0 +1,65 @@
+################
+version: '3.8' #
+services:      #
+################
+#
+####################################################################################
+ Tdarr:
+  image: 'haveagitgat/tdarr'
+  container_name: 'Tdarr'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'Tdarr'
+  deploy:
+   resources:
+    limits:
+     cpus: '4'
+     memory: '3072M'
+  environment:
+   TZ: 'EUROPE/PARIS'
+   PUID: '0'
+   PGID: '0'
+   UMASK_SET: '002'
+   serverIP: '0.0.0.0'
+   serverPort: '8266'
+   webUIPort: '8265'
+   internalNode: 'true'
+   inContainer: 'true'
+   nodeName: 'MyInternalNode'
+  ports:
+   - '8265:8265'
+   - '8266:8266'
+  volumes:
+   - 'TDARR_server:/app/server'
+   - 'TDARR_config:/app/configs'
+   - 'TDARR_logs:/app/logs'
+   - 'TDARR_media:/media'
+   - 'TDARR_temp:/temp'
+  labels:
+   Cacher: 'Non'
+####################################################################################
+#
+#
+####################################################################################
+volumes:
+ # --------------------------------------------------------------------------------
+ TDARR_server:
+  external: false
+
+ TDARR_config:
+  external: false
+
+ TDARR_logs:
+  external: false
+
+ TDARR_temp:
+  external: false
+
+ TDARR_media:
+  external: false
+ # --------------------------------------------------------------------------------
+
+####################################################################################
+# devices:
+#  - '/dev/ttyUSB0:/dev/ttyUSB0'
+####################################################################################
