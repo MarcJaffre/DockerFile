@@ -13,8 +13,8 @@ services:      #
   container_name: 'Coffre'
   restart: 'unless-stopped'
   hostname: 'passbolt'
-  depends_on:
-   - 'db'
+  external_links:
+   - 'mariadb:db'
   environment:
    APP_FULL_BASE_URL: 'https://XXXXX.ddns.net/'
    DATASOURCES_DEFAULT_HOST: "db"
