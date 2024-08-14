@@ -1,0 +1,24 @@
+
+version: '2.1'
+services:
+ Deluge:
+  container_name: 'deluge'
+  image: 'linuxserver/deluge'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'Deluge'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+   DELUGE_LOGLEVEL: 'warning'
+  ports:
+   - '8112:8112' # WebUI
+  volumes:
+   - 'Deluge:/config'
+   - 'Deluge:/downloads'
+   
+volumes:
+ Deluge:
+  external: false
