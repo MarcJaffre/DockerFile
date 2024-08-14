@@ -1,0 +1,20 @@
+version: '2.1'
+services:
+
+ DDClient:
+  image: 'linuxserver/ddclient'
+  container_name: 'ddclient'
+  network_mode: 'bridge'
+  restart: 'unless-stopped'
+  hostname: 'ddclient'
+  domainname: 'labs'
+  environment:
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
+  volumes:
+   - 'DDClient:/config'
+
+volumes:
+ DDClient:
+  external: false
