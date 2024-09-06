@@ -6,7 +6,7 @@ services:      #
 #
 #################################################################
  LibreOffice:                                                   #
-  image: 'linuxserver/libreoffice:arm64v8-latest'               #
+  image: 'linuxserver/libreoffice:latest'                       #
   # ----------------------------------------------------------- #
   container_name: 'LibreOffice'                                 #
   hostname: 'LibreOffice'                                       #
