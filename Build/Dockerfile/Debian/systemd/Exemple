@@ -23,11 +23,11 @@ RUN echo "root:admin" | chpasswd
 RUN mkdir -p /run/systemd
 
 RUN -e echo "[Unit]\n
-Description=x11vnc service
-After=network.target
-[Service]
-User=vncuser
-Group=vncgroup
+Description=x11vnc service\n
+After=network.target\n
+[Service]\n
+User=root
+Group=root
 ExecStart=/usr/bin/x11vnc -rfbport 5900 -rfbauth /etc/x11vnc.passwd -forever -shared -localhost -display :0
 Restart=always
 [Install]
