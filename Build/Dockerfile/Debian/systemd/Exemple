@@ -36,8 +36,8 @@ EXPOSE 5900
 ###########
 RUN echo "root:admin" | chpasswd
 
-# websockify -D --web /usr/share/novnc 6080 localhost:5901
-# vncserver :1 -geometry 1024x768 -depth 24 -localhost
+
+# /usr/bin/vncserver :1 -geometry 1024x768 -depth 24 -localhost
 
 
 ######################################################################################################################################
@@ -46,4 +46,5 @@ RUN echo "root:admin" | chpasswd
 CMD ["systemd", "--system", "--log-level=info"]
 
 
-
+# Socket Web: 
+# /usr/bin/websockify -D --web /usr/share/novnc 6080 localhost:5901
