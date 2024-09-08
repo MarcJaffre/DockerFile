@@ -33,4 +33,4 @@ RUN sed -i 's/^Group=.*/Group=docker/' /etc/systemd/system.conf
 ##############################################################################################
 # Expose the command to run systemd in mode User #
 ##################################################
-CMD ["runit"]
+CMD ["runit", "-t"]
