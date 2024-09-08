@@ -19,6 +19,7 @@ bash ./Docker/build.sh Dockerfile/Debian apache2 web
 bash ./Docker/build.sh Dockerfile/Debian mariadb database
 bash ./Docker/build.sh Dockerfile/Debian glpi ticketing
 bash ./Docker/build.sh Dockerfile/Debian centreon supervision
+bash ./Docker/build.sh Dockerfile/Debian systemd
 ```
 
 ### Complément
