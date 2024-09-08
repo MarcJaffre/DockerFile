@@ -1,12 +1,15 @@
-# Use an official Debian image as the base
-FROM debian:latest
+# Use the official Alpine Linux image as the base
+FROM alpine:latest
 
-# Set the init system to "dumb-init"
-RUN apt-get update && apt-get install -y dumb-init
-ENTRYPOINT ["dumb-init", "--"]
+# Set the working directory to /app
+WORKDIR /app
 
-# Create a new user named "marc"
-RUN useradd marc
+# Install NoVNC and TigerVNC
+RUN apk update && \
+    apk add novnc tigervnc
 
-# Switch to the "marc" user
-USER marc
+# Expose the VNC port
+EXPOSE 5900
+
+# Set the default command to start the VNC server
+CMD ["vncserver", "-geometry", "1024x768", "-depth", "24"]
