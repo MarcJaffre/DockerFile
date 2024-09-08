@@ -13,16 +13,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 ###############
 RUN apt update
 RUN apt install -qy systemd && mkdir -p /run/systemd
-RUN apt install -qy novnc && mkdir -p /etc/novnc/ && echo "listen 80" >> /etc/novnc/novnc.conf
 
 ######################################################################################################################################
 # Configuration #
 #################
-
-
-
-
-
 
 ######################################################################################################################################
 # General #
