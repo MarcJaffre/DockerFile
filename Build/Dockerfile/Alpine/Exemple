@@ -1,15 +1,7 @@
-# Use the official Alpine Linux image as the base
 FROM alpine:latest
-
-# Set the working directory to /app
 WORKDIR /app
-
-# Install NoVNC and TigerVNC
-RUN apk update && \
-    apk add novnc tigervnc
-
-# Expose the VNC port
+RUN apk update
+RUN apk add novnc
+RUN apk add tigervnc
 EXPOSE 5900
-
-# Set the default command to start the VNC server
 CMD ["vncserver", "-geometry", "1024x768", "-depth", "24"]
