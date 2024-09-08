@@ -12,7 +12,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Maintenance #
 ###############
 RUN apt update
+RUN apt install -qy novnc
 RUN apt install -qy systemd
+RUN apt install -qy x11vnc
 
 #####################################################################################################
 # Configuration #
