@@ -1,16 +1,1 @@
-[Unit]
-Description=Websockify noVNC Service
-After=network.target
 
-[Service]
-User=root
-ExecStart=/usr/bin/websockify -D --web /usr/share/novnc 6080 localhost:5901
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-
-
-
-#/usr/bin/websockify -D --web /usr/share/novnc 6080 localhost:5901
-#/usr/bin/vncserver --web=/usr/bin/websockify --target-config=chemin/vers/noVNC/utils/launch.sh --listen=localhost:6080 --target=localhost:5900
