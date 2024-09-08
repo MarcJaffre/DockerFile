@@ -1,0 +1,8 @@
+FROM debian:bookworm
+RUN apt update && apt upgrade -y
+RUN apt install -y systemd systemd-sysv
+RUN useradd -m marc
+RUN loginctl enable-linger marc
+USER marc
+WORKDIR /home/marc
+CMD ["systemd"]
