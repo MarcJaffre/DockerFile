@@ -7,9 +7,15 @@ ENV container=docker
 # Update the package list
 RUN apt update
 
-# Install systemd and systemd-init
-RUN apt install -y systemd
-RUN apt install -y systemd-init
+# Install systemd and dumb-init
+RUN apt install -y systemd dumb-init
 
-# Expose the command to run systemd with systemd-init
-CMD ["systemd-init", "--systemd"]
+# Créez l'utilisateur et le groupe docker
+RUN groupadd -r docker && useradd -r -g docker docker
+
+# Configure systemd pour utiliser l'utilisateur et le groupe docker
+RUN sed -i 's/^User=.*/User=docker/' /etc/systemd/system.conf
+RUN sed -i 's/^Group=.*/Group=docker/' /etc/systemd/system.conf
+
+# Expose the command to run systemd with dumb-init
+CMD ["dumb-init", "--", "systemd"]
