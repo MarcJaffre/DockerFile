@@ -19,6 +19,7 @@ RUN useradd -m -s /bin/bash marc
 RUN usermod -aG sudo marc
 
 # Mot de passe
+RUN echo "root:admin" | chpasswd
 RUN echo "marc:admin" | chpasswd
 
 # Définissez la commande à exécuter lors du démarrage du container
