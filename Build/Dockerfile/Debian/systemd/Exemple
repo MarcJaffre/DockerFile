@@ -14,8 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
 RUN apt install -qy systemd
 RUN apt install -qy sysvinit-core
-RUN apt install -qy tiger-vnc-server
-
+RUN apt install -qy tigervnc-standalone-server
 ######################################################################################################################################
 # Configuration #
 #################
