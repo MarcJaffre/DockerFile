@@ -39,9 +39,7 @@ WORKDIR /home/marc
 ############
 CMD ["systemd"]
 
-
-
 #CMD ["su", "marc"]
-#USER marc
+USER marc
 
 
