@@ -38,4 +38,3 @@ WORKDIR /home/marc
 # Start-up #
 ############
 CMD ["su", "marc"]
-#CMD ["/sbin/init"]
