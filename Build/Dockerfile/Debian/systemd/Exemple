@@ -1,4 +1,17 @@
-FROM debian:bookworm
-RUN apt update
+# Use an official Ubuntu image as the base
+FROM ubuntu:latest
 
+# Install XFCE and its dependencies
+RUN apt-get update && apt-get install -y xfce4
 
+# Install noVNC and its dependencies
+RUN apt-get update && apt-get install -y novnc
+
+# Configure noVNC to connect to the XFCE desktop
+RUN echo "xfce4-session" > ~/.vnc/xstartup
+
+# Expose the noVNC port
+EXPOSE 6080
+
+# Set the default command to start noVNC
+CMD ["novnc", "--listen", "6080"]
