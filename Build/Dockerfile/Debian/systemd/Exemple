@@ -13,6 +13,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 ###############
 RUN apt update
 RUN apt install -y systemd sysvinit-core && mkdir -p /run/systemd
+#RUN apt install -y novnc
+#RUN apt install -y tightvncserver
+#RUN apt install -y websockify
+#RUN apt install -y xfce4 xfce4-goodies
 
 ######################################################################################################################################
 # Configuration #
