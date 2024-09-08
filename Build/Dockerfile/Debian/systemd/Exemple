@@ -1,1 +1,25 @@
+dockerfile
+
+Verify
+
+Open In Editor
+Edit
+Copy code
+# Utilisez l'image officielle de Debian comme base
 FROM debian:latest
+
+# Mettez à jour le système
+RUN apt update && apt upgrade -y
+
+# Installez systemd et les dépendances nécessaires
+RUN apt install -y systemd systemd-sysv
+
+# Activez systemd
+RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN systemctl enable ssh
+
+# Définissez le répertoire de travail par défaut
+WORKDIR /root
+
+# Définissez la commande à exécuter lors du démarrage du container
+CMD ["/sbin/init"]
