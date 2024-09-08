@@ -15,13 +15,18 @@ RUN apt update
 RUN apt install -qy systemd
 RUN apt install -qy sysvinit-core
 RUN apt install -qy tigervnc-standalone-server
+
+
 ######################################################################################################################################
 # Configuration #
 #################
+RUN echo -e "[Unit]\nDescription=Tiger VNC Server\nAfter=network.target\n\n[Service]\nUser=root\nExecStart=/usr/sbin/tigervncserver -localhost -SecurityTypes None\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/tigervncserver.service
 RUN echo "root:admin" | chpasswd
 RUN mkdir -p /run/systemd
 
-RUN echo -e "[Unit]\nDescription=Tiger VNC Server\nAfter=network.target\n\n[Service]\nUser=root\nExecStart=/usr/sbin/tigervncserver -localhost -SecurityTypes None\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/tigervncserver.service
+######################################################################################################################################
+# Services #
+############
 
 
 
