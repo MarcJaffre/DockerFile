@@ -22,6 +22,9 @@ RUN apt install -qy tiger-vnc-server
 RUN echo "root:admin" | chpasswd
 RUN mkdir -p /run/systemd
 
+RUN echo -e "[Unit]\nDescription=Tiger VNC Server\nAfter=network.target\n\n[Service]\nUser=root\nExecStart=/usr/sbin/tigervncserver -localhost -SecurityTypes None\nRestart=always\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/tigervncserver.service
+
+
 
 ######################################################################################################################################
 # General #
