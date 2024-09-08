@@ -4,52 +4,11 @@
 FROM debian:latest
 
 #####################################################################################
-# Maintenance #
-###############
-RUN apt update 
-RUN apt install -y systemd
-RUN apt install -y systemd-sysv
-RUN apt install -y openssh-server
+# User NameSpace #
+##################
+RUN useradd -m myuser
 
-#####################################################################################
-# Configuration #
-#################
-RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN systemctl enable ssh
+RUN systemctl enable systemd-user
+RUN systemctl start systemd-user
 
-#####################################################################################
-# User #
-########
-RUN useradd -m -s /bin/bash marc
-RUN usermod -aG sudo marc
-
-#####################################################################################
-# Passwd #
-##########
-RUN echo "marc:admin" | chpasswd
-RUN echo "root:admin" | chpasswd
-
-#####################################################################################
-# WorkDir #
-###########
-WORKDIR /home/marc
-
-##############################################################################################
-# Créez l'utilisateur et le groupe docker #
-###########################################
-RUN groupadd -r    docker
-RUN useradd  -r -g docker docker
-
-##############################################################################################
-# Configure systemd pour utiliser l'utilisateur et le groupe docker #
-#####################################################################
-RUN sed -i 's/^User=.*/User=marc/'   /etc/systemd/system.conf
-RUN sed -i 's/^Group=.*/Group=marc/' /etc/systemd/system.conf
-
-#####################################################################################
-# Start-up #
-############
 CMD ["/usr/lib/systemd/systemd", "--user"]
-
-#CMD ["su", "marc"]
-
