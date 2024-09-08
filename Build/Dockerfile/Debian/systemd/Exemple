@@ -39,8 +39,8 @@ RUN echo "root:admin" | chpasswd
 ######################################################################################################################################
 # CMD #
 #######
-CMD ["systemd", "--system", "--log-level=info"]
 CMD ["websockify", "-D", "--web", "/usr/share/novnc/", "6080", "localhost:5901"]
+CMD ["systemd", "--system", "--log-level=info"]
 
 #CMD ["vncserver", ":1", "-geometry", "1024x768", "-depth", "24", "-localhost"]
 
