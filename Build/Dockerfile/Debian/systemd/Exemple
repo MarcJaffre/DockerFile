@@ -1,8 +1,4 @@
 FROM debian:bookworm
 RUN apt update && apt upgrade -y
-RUN apt install -y systemd systemd-sysv
-RUN useradd -m marc
-
-USER marc
-WORKDIR /home/marc
-CMD ["/usr/bin/loginctl", "enable-linger", "marc" , "&&", "/usr/bin/systemd"]
+RUN apt install -y systemd
+CMD ["/usr/bin/systemd"]
