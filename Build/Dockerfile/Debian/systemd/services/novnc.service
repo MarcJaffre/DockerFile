@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/chemin/vers/websockify --web=/chemin/vers/noVNC/utils/websockify --target-config=chemin/vers/noVNC/utils/launch.sh --listen=localhost:6080 --target=localhost:5900
+ExecStart=/usr/bin/vncserver --web=/chemin/vers/noVNC/utils/websockify --target-config=chemin/vers/noVNC/utils/launch.sh --listen=localhost:6080 --target=localhost:5900
 Restart=always
 
 [Install]
