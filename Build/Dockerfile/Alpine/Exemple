@@ -1,1 +1,3 @@
 FROM alpine:latest
+
+RUN apk add --no-cache systemd systemd-udev systemd-libs dbus
