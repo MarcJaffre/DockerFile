@@ -10,7 +10,7 @@ on:
    dockerfile:
     description: 'Path to Dockerfile'
     required: true
-    default: '/Build/Dockerfile/Debian/systemd'
+    default: '/Build/Dockerfile/Debian/systemd/Exemple'
    image-tag:
     description: 'Image tag'
     required: true
