@@ -6,4 +6,5 @@ RUN echo -e "[Service]\n ExecStart=/bin/bash\n[Install]\nWantedBy=multi-user.tar
 RUN systemctl enable systemd
 RUN useradd -m -s /bin/bash marc
 RUN echo "marc:admin" | chpasswd
+USER marc
 CMD ["systemd", "--user"]
