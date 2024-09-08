@@ -1,8 +1,12 @@
-FROM ubuntu:latest
-RUN apt update
-RUN apt install -y xfce4
-RUN apt install -y novnc
-RUN mkdir /root/.vnc/
-RUN echo "xfce4-session" > /root/.vnc/xstartup
-EXPOSE 6080
-CMD ["novnc", "--listen", "6080"]
+# Use an official Debian image as the base
+FROM debian:latest
+
+# Set the init system to "dumb-init"
+RUN apt-get update && apt-get install -y dumb-init
+ENTRYPOINT ["dumb-init", "--"]
+
+# Create a new user named "marc"
+RUN useradd marc
+
+# Switch to the "marc" user
+USER marc
