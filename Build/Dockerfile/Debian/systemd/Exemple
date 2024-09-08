@@ -3,5 +3,4 @@ RUN apt update && apt upgrade -y
 RUN apt install -y systemd
 RUN apt install -y systemd-container
 RUN useradd marc -s /usr/bin/bash
-CMD ["/usr/bin/systemd-nspawn", "--boot", "--directory=/", "--user=1000"]
-USER marc
+CMD ["/usr/bin/systemd-nspawn", "--boot", "--directory=/", "--user=0"]
