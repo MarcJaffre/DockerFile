@@ -18,9 +18,9 @@ RUN apt install -qy x11vnc
 ######################################################################################################################################
 # Configuration #
 #################
-RUN useradd -m -s /bin/bash vncuser
+RUN useradd  -m -s /bin/bash vncuser
 RUN groupadd -g 1000 vncgroup
-RUN usermod -aG vncgroup vncuser
+RUN usermod  -aG vncgroup vncuser
 
 ######################################################################################################################################
 # General #
