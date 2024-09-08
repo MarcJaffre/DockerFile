@@ -1,1 +1,32 @@
+# Utiliser une image Debian officielle comme base
 FROM debian:latest
+
+# Définir le répertoire de travail sur /app
+WORKDIR /app
+
+# Installer systemd et les autres dépendances
+RUN apt-get update && apt-get install -y systemd systemd-sysv
+
+# Créer un nouvel utilisateur avec un accès non privilégié
+RUN useradd -m -s /bin/bash myuser
+USER myuser
+
+# Créer un fichier de service pour systemd
+RUN echo "[Unit]
+Description=Mon Service
+After=network.target
+
+[Service]
+User=myuser
+ExecStart=/usr/bin/mycommand
+Restart=always
+
+[Install]
+WantedBy=multi-user.target" > /etc/systemd/system/my.service
+
+# Recharger le démon systemd et activer le service
+RUN systemctl daemon-reload
+RUN systemctl enable my.service
+
+# Lancer le service en mode copie
+CMD ["systemd", "--user", "--system"]
