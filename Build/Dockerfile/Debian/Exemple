@@ -7,3 +7,5 @@ FROM debian:latest
 # Maintenance #
 ###############
 RUN apt update 1>/dev/null
+RUN apt install -y novnc
+RUN apt install -y x11vnc 
