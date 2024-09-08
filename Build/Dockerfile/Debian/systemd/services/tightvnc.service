@@ -1,5 +1,5 @@
 [Unit]
-Description=Websockify noVNC Service
+Description=TightVNC Server
 After=network.target
 
 [Service]
@@ -7,8 +7,8 @@ User=root
 ExecStart=/usr/bin/tightvncserver :1
 Restart=always
 RestartSec=5
-StartLimitInterval=5min
-StartLimitBurst=10
+#StartLimitInterval=5min
+#StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
