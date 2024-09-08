@@ -1,20 +1,31 @@
-# Use an official Debian image as a base
-FROM debian:latest
+#########################################################################################################################################################
+# Operating System #
+####################
+FROM debian:12
 
-# Set the working directory to /app
-WORKDIR /app
+#########################################################################################################################################################
+# Mise a jour du conteneur #
+############################
+RUN apt update && apt upgrade -y
 
-# Update the package list and install systemd
-RUN apt-get update && apt-get install -y systemd
+#########################################################################################################################################################
+# SystemD #
+###########
+RUN apt install -y systemd systemd-sysv
+RUN mkdir -p /etc/systemd/system.conf.d
+RUN echo "[Install] \n systemctl daemon-reexec"  > /etc/systemd/system.conf.d/override.conf
 
-# Enable systemd to start at boot
-RUN systemctl enable systemd
-
-# Install Apache
+#########################################################################################################################################################
+# Install Apache #
+##################
 RUN apt-get install -y apache2
 
-# Expose the Apache port
+#########################################################################################################################################################
+# Expose the Apache port #
+##########################
 EXPOSE 80
 
-# Run Apache when the container starts
+#########################################################################################################################################################
+# Run Apache when the container starts #
+########################################
 CMD ["systemctl", "start", "apache2"]
