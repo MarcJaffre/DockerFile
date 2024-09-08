@@ -1,11 +1,1 @@
 FROM debian:latest
-WORKDIR /app
-RUN apt update 
-RUN apt install -y systemd
-RUN apt install -y btrfs-tools git go-md2man golang-go iptables libassuan-dev libc6-dev libdevmapper-dev libglib2.0-dev libgpg-error-dev libgpgme-dev libostree-dev libprotobuf-c-dev
-RUN echo -e "[Service]\n ExecStart=/bin/bash\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/systemd.service
-RUN systemctl enable systemd
-RUN useradd -m -s /bin/bash marc
-RUN echo "marc:admin" | chpasswd
-USER marc
-CMD ["systemd", "--user"]
