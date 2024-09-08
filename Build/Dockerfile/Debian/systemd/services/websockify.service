@@ -1,12 +1,12 @@
 [Unit]
-Description=Websockify noVNC Service
+Description=Websockify Server
 After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/bin/websockify -D --web=/usr/share/novnc/ 6080 localhost:5900
+ExecStart=/usr/bin/websockify 6080 localhost:5900
+#ExecStart=/usr/bin/websockify -D --web=/usr/share/novnc/ 6080 localhost:5900
 Restart=always
-RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
