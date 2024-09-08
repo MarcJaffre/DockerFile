@@ -13,7 +13,7 @@ RUN useradd -m -s /bin/bash myuser
 USER myuser
 
 # Create a service file for systemd
-RUN echo "[Unit] \n Description=My Service \n After=network.target \n \n [Service] \n User=myuser \n ExecStart=/usr/bin/mycommand \n Restart=always \n \n [Install] \n WantedBy=multi-user.target" > /etc/systemd/system/my.service
+RUN echo -e "[Unit] \n Description=My Service \n After=network.target \n \n [Service] \n User=myuser \n ExecStart=/usr/bin/mycommand \n Restart=always \n \n [Install] \n WantedBy=multi-user.target" > /etc/systemd/system/my.service
 
 # Reload systemd daemon and enable the service
 RUN systemctl daemon-reload
