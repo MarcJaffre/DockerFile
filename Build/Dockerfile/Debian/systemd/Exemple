@@ -3,4 +3,4 @@ RUN apt update && apt upgrade -y
 RUN apt install -y systemd
 RUN apt install -y apache2
 
-CMD ["/usr/bin/systemd", "--system", "--user"]
+CMD ["/usr/bin/systemd-nspawn", "--boot", "--directory=/", "--user"]
