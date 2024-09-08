@@ -11,6 +11,9 @@ RUN apt install -y systemd
 RUN apt install -y systemd-sysv
 RUN apt install -y openssh-server
 
+RUN systemctl enable systemd-user
+RUN systemctl start systemd-user
+
 #####################################################################################
 # Configuration #
 #################
@@ -37,8 +40,7 @@ WORKDIR /home/marc
 #####################################################################################
 # Start-up #
 ############
-USER marc
-CMD ["systemd", "--user"]
-
+#USER marc
+CMD ["systemd"]
 #CMD ["su", "marc"]
 
