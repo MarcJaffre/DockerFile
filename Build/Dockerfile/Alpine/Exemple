@@ -1,7 +1,10 @@
 FROM alpine:latest
-WORKDIR /app
-RUN apk update
-RUN apk add novnc
-RUN apk add tigervnc
-EXPOSE 5900
-CMD ["vncserver", "-geometry", "1024x768", "-depth", "24"]
+RUN apk add --no-cache systemd systemd-udev systemd-libs dbus
+RUN sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN echo "init=/lib/systemd/systemd" >> /etc/default/cmdline
+EXPOSE 80
+WORKDIR /root
+COPY myservice.service /etc/systemd/system/
+RUN systemctl enable myservice.service
+RUN systemctl start myservice.service
+CMD ["/lib/systemd/systemd"]
