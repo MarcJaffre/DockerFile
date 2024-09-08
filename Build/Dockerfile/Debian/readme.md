@@ -1,1 +1,5 @@
-ENV DEBIAN_FRONTEND=noninteractive apt install -qy 
+### Environnement
+ENV DEBIAN_FRONTEND=noninteractive
+
+### Install Silent
+apt install -qy 
