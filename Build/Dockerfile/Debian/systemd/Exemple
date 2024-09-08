@@ -20,7 +20,7 @@ RUN apt update
 ##############################################################################################
 # Installation de paquet #
 ##########################
-RUN apt install -y systemd dumb-init runit
+RUN apt install -y systemd dumb-init procps runit
 
 ##############################################################################################
 # Créez l'utilisateur et le groupe docker #
