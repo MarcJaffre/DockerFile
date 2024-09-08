@@ -39,17 +39,16 @@ EXPOSE 5900
 ######################################################################################################################################
 # CMD #
 #######
-CMD ["systemd"]
+CMD ["systemd", "--system", "--log-level=info"]
 
-######################################################################################################################################
-# [Unit]
-#  Description=Tiger VNC Server
-#  After=network.target
-#  
-#  [Service]
-#  User=root
-#  ExecStart=/usr/bin/tigervncserver -localhost -SecurityTypes None
-#  Restart=always
-#  
-#  [Install]
-#  WantedBy=multi-user.target
+
+
+
+
+
+
+
+
+
+
+
