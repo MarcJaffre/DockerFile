@@ -6,16 +6,15 @@ FROM debian:latest
 ###########################################################################################################################################################
 # Maintenance #
 ###############
-RUN apt update
-RUN apt-get install -y supervisor
+RUN apt-get update
+RUN apt install -y supervisord
+RUN rm -rf /var/lib/apt/lists/*
+
 
 ###########################################################################################################################################################
 # Configuration #
 #################
-RUN echo -e 'CMD ["supervisord", "-n"] \n \n [supervisord] \n nodaemon=true \n \n [program:mon_programme] \n command=/usr/bin/python /app/mon_programme.py \n autostart=true \n autorestart=true' > /etc/supervisor/conf.d/supervisord.conf
-
-
-
+RUN echo -e "[supervisord] \n nodaemon=true" > etc/supervisord.conf
 
 ###########################################################################################################################################################
 # Global #
@@ -27,3 +26,20 @@ EXPOSE 80
 ###########################################################################################################################################################
 # START #
 #########
+
+# Use an official Debian image as the base
+FROM debian:latest
+
+# Set the working directory to /app
+
+
+# Install supervisord
+
+# Copy the supervisord configuration file
+COPY supervisord.conf /etc/supervisord.conf
+
+# Expose the port(s) used by your application
+EXPOSE 80
+
+# Run supervisord when the container starts
+CMD ["supervisord", "-n"]
