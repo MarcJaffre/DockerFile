@@ -12,7 +12,8 @@ RUN useradd -m -s /bin/bash myuser
 USER myuser
 
 # Créer un fichier de service pour systemd
-RUN echo "[Unit]
+RUN cat > /etc/systemd/system/my.service <<EOF
+[Unit]
 Description=Mon Service
 After=network.target
 
@@ -22,7 +23,8 @@ ExecStart=/usr/bin/mycommand
 Restart=always
 
 [Install]
-WantedBy=multi-user.target" > /etc/systemd/system/my.service
+WantedBy=multi-user.target
+EOF
 
 # Recharger le démon systemd et activer le service
 RUN systemctl daemon-reload
