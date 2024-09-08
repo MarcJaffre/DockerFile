@@ -13,6 +13,7 @@ RUN useradd -m myuser
 ###########
 RUN apt update
 RUN apt install -y dumb-init
+RUN apt install -y systemd
 
 #####################################################################################
 # Launch #
