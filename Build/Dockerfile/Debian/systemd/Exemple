@@ -7,6 +7,8 @@ FROM debian:latest
 # Environment #
 ###############
 ENV DEBIAN_FRONTEND=noninteractive
+WORKDIR /root
+
 
 #####################################################################################################
 # Maintenance #
@@ -15,12 +17,15 @@ RUN apt update
 RUN apt install -qy novnc
 RUN apt install -qy systemd
 RUN apt install -qy x11vnc
-RUN x11vnc -storepasswd /etc/x11vnc.passwd
 
 #####################################################################################################
 # Configuration #
 #################
-WORKDIR /root
+RUN x11vnc -storepasswd /etc/x11vnc.passwd
+RUN echo "vnc_host = 'localhost'" >> /etc/novnc/websockify.conf
+
+
+
 
 
 #####################################################################################################
