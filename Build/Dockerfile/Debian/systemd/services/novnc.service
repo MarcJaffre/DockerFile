@@ -4,11 +4,9 @@ After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/bin/websockify -D --web /usr/share/novnc 6080 localhost:5901
+ExecStart=/usr/bin/websockify -D --web=/usr/share/novnc/ 6080 localhost:5900
 Restart=always
 RestartSec=5
-#StartLimitInterval=5min
-#StartLimitBurst=10
 
 [Install]
 WantedBy=multi-user.target
