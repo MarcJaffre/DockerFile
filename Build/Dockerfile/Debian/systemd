@@ -28,3 +28,8 @@ RUN echo "[Install] \n systemctl daemon-reexec"  > /etc/systemd/system.conf.d/ov
 # Set the default command to run systemd #
 ##########################################
 CMD ["systemd"]
+
+##############################################################################################################################################################################################
+# Lancement du Conteneur en Utilisateur #
+#########################################
+USER $USERNAME
