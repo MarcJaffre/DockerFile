@@ -37,9 +37,8 @@ WORKDIR /home/marc
 #####################################################################################
 # Start-up #
 ############
-CMD ["systemd"]
+USER marc
+CMD ["systemd" "--user"]
 
 #CMD ["su", "marc"]
-USER marc
-
 
