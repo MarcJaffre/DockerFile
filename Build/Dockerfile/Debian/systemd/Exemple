@@ -23,7 +23,7 @@ RUN echo "root:admin" | chpasswd
 RUN mkdir -p /run/systemd
 
 RUN -e echo "[Unit]\n
-Description=x11vnc service\n
+Description='x11vnc service'\n
 After=network.target\n
 [Service]\n
 User=root
