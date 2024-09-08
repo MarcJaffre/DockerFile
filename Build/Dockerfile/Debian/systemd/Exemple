@@ -38,7 +38,8 @@ RUN apt install -y systemd
 # Start-up #
 ############
 CMD ["systemd"]
+
 #CMD ["su", "marc"]
-USER marc
+#USER marc
 
 
