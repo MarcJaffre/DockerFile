@@ -26,7 +26,6 @@ RUN echo "admin" | vncpasswd -f > /root/.vnc/passwd
 RUN chmod 600 /root/.vnc/passwd
 RUN curl https://raw.githubusercontent.com/MarcJaffre/DockerFile/main/Build/Dockerfile/Debian/systemd/services/novnc.service > /etc/systemd/system/novnc.service
 
-
 ######################################################################################################################################
 # Services #
 ############
