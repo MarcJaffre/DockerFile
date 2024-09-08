@@ -21,6 +21,11 @@ RUN mkdir -p /etc/systemd/system.conf.d
 RUN echo "[Install] \n systemctl daemon-reexec"  > /etc/systemd/system.conf.d/override.conf
 
 ##############################################################################################
+# Clean #
+#########
+RUN apt clean -y
+
+##############################################################################################
 # Set the default command to run systemd #
 ##########################################
 CMD ["systemd"]
