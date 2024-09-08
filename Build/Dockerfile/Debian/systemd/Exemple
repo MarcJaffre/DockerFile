@@ -22,6 +22,18 @@ RUN apt install -qy x11vnc
 RUN echo "root:admin" | chpasswd
 RUN mkdir -p /run/systemd
 
+RUN -e echo "[Unit]
+Description=x11vnc service
+After=network.target
+[Service]
+User=vncuser
+Group=vncgroup
+ExecStart=/usr/bin/x11vnc -rfbport 5900 -rfbauth /etc/x11vnc.passwd -forever -shared -localhost -display :0
+Restart=always
+[Install]
+WantedBy=multi-user.target" > /etc/systemd/system/x11vnc.service
+
+
 ######################################################################################################################################
 # General #
 ###########
