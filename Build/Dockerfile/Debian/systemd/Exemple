@@ -34,7 +34,11 @@ RUN chmod 600 /root/.vnc/passwd
 # Services #
 ############
 RUN curl "https://raw.githubusercontent.com/MarcJaffre/DockerFile/main/Build/Dockerfile/Debian/systemd/services/tightvnc.service" > /etc/systemd/system/tightvnc.service
+RUN curl "https://raw.githubusercontent.com/MarcJaffre/DockerFile/main/Build/Dockerfile/Debian/systemd/services/novnc.service"    > /etc/systemd/system/novnc.service
+
+
 RUN systemctl enable tightvnc
+RUN systemctl enable novnc
 
 ########################################################################################################################################################################
 # Services #
