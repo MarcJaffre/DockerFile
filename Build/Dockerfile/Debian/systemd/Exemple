@@ -37,7 +37,7 @@ WORKDIR /home/marc
 #####################################################################################
 # Start-up #
 ############
-CMD ["/sbin/init"]
+CMD ["systemd"]
 #CMD ["su", "marc"]
 USER marc
 
