@@ -20,6 +20,7 @@ RUN apt install -qy x11vnc
 ######################################################################################################################################
 # Configuration #
 #################
+RUN mkdir -p /etc/novnc/
 RUN echo "vnc_host = 'localhost'" >> /etc/novnc/websockify.conf
 RUN x11vnc -storepasswd /etc/x11vnc.passwd
 
