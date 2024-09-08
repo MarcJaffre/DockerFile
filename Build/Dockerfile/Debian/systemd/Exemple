@@ -19,4 +19,4 @@ RUN apt install -y systemd
 #####################################################################################
 # Launch #
 ##########
-CMD ["/usr/lib/systemd/systemd", "--user"]
+CMD ["/usr/lib/systemd/systemd", "--user", "--", "--tmpfs=no"]
