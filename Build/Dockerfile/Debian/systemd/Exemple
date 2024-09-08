@@ -18,16 +18,11 @@ RUN echo "root:admin" | chpasswd
 ###############
 RUN apt update
 RUN apt install -y curl systemd sysvinit-core && mkdir -p /run/systemd
-RUN apt install -y novnc websockify
-
 RUN apt install -y tightvncserver
-#RUN apt install -y xfce4 xfce4-goodies
+RUN apt install -y websockify
+RUN apt install -y novnc
+RUN apt install -y xfwm4 xfdesktop4 xfce4-panel
 
-########################################################################################################################################################################
-# Services #
-############
-RUN curl https://raw.githubusercontent.com/MarcJaffre/DockerFile/main/Build/Dockerfile/Debian/systemd/services/novnc.service    > /etc/systemd/system/novnc.service
-RUN curl https://raw.githubusercontent.com/MarcJaffre/DockerFile/main/Build/Dockerfile/Debian/systemd/services/tightvnc.service > /etc/systemd/system/tightvnc.service
 ########################################################################################################################################################################
 # Configuration #
 #################
@@ -35,9 +30,12 @@ RUN mkdir -p /root/.vnc
 RUN echo "admin" | vncpasswd -f > /root/.vnc/passwd
 RUN chmod 600 /root/.vnc/passwd
 
-RUN systemctl enable novnc
-RUN systemctl enable tightvnc.service
-
+########################################################################################################################################################################
+# Services #
+############
+#/etc/systemd/system/novnc.service
+#/etc/systemd/system/tightvnc.service
+#RUN systemctl enable 
 
 ########################################################################################################################################################################
 # Services #
@@ -49,9 +47,4 @@ EXPOSE 5900
 # CMD #
 #######
 CMD ["systemd", "--system", "--log-level=info"]
-
 ########################################################################################################################################################################
-# Socket Web:
-# /usr/bin/websockify -D --web /usr/share/novnc 6080 localhost:5901
-# /usr/bin/vncserver :1 -geometry 1024x768 -depth 24 -localhost
-
