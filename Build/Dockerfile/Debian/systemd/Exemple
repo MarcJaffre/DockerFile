@@ -18,4 +18,5 @@ RUN apt install -y systemd
 #####################################################################################
 # Launch #
 ##########
+USER myuser
 CMD ["dumb-init", "--", "/usr/lib/systemd/systemd", "--user"]
