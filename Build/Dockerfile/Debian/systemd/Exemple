@@ -1,8 +1,4 @@
 ##############################################################################################
-# privileged : false
-##############################################################################################
-
-##############################################################################################
 # Operating System #
 ####################
 FROM debian:latest
@@ -26,7 +22,7 @@ RUN apt install -y systemd dumb-init procps runit
 # Créez l'utilisateur et le groupe docker #
 ###########################################
 RUN groupadd -r    marc
-RUN useradd  -r -g docker marc
+RUN useradd  -r -g marc marc
 
 ##############################################################################################
 # Configure systemd pour utiliser l'utilisateur et le groupe docker #
