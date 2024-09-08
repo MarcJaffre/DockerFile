@@ -1,8 +1,1 @@
-FROM debian
-RUN useradd -ms /bin/bash nonroot
-USER nonroot
-WORKDIR /home/nonroot/app
-COPY --chown=nonroot:nonroot . /home/nonroot/app
-RUN chmod 755 /home/nonroot/app
-RUN systemctl --user enable docker
-RUN systemctl --user start docker
+
