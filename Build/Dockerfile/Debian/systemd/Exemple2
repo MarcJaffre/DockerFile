@@ -12,3 +12,7 @@ RUN apt install -y systemd dumb-init
 
 # Expose the command to run systemd with dumb-init
 CMD ["dumb-init", "--", "systemd"]
+
+
+
+# KO au boot !
