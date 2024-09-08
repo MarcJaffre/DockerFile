@@ -12,13 +12,15 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Maintenance #
 ###############
 RUN apt update
-RUN apt install -qy systemd && mkdir -p /run/systemd
+RUN apt install -qy systemd
+RUN apt install -qy sysvinit-core
 RUN apt install -qy x11vnc
 
 ######################################################################################################################################
 # Configuration #
 #################
 RUN echo "root:admin" | chpasswd
+RUN mkdir -p /run/systemd
 
 ######################################################################################################################################
 # General #
