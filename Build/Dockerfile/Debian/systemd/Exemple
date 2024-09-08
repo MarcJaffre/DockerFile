@@ -1,4 +1,12 @@
-FROM debian
-RUN apt update
+FROM debian:latest
+WORKDIR /app
+RUN apt update 
 RUN apt install -y systemd
-RUN useradd -ms /bin/bash marc
+RUN systemctl enable systemd
+
+RUN useradd -m -s /bin/bash myuser
+RUN echo "myuser:myuser" | chpasswd
+USER myuser
+
+# Set the default command to run systemd
+CMD ["systemd"]
