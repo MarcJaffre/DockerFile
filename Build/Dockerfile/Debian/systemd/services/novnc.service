@@ -1,10 +1,11 @@
 [Unit]
-Description=noVNC
+Description=NoVNC Server
 After=network.target
 
 [Service]
 User=root
-ExecStart=/usr/bin/novnc --listen 8080 --vnc localhost:5900
+ExecStart=/usr/share/novnc 6080
+#ExecStart=/usr/bin/novnc --listen 8080 --vnc localhost:5900
 Restart=always
 
 [Install]
