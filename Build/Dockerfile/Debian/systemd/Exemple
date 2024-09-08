@@ -22,7 +22,7 @@ RUN apt install -qy x11vnc
 RUN echo "root:admin" | chpasswd
 RUN mkdir -p /run/systemd
 
-RUN -e echo "[Unit]
+RUN -e echo "[Unit]\n
 Description=x11vnc service
 After=network.target
 [Service]
