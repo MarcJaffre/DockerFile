@@ -14,7 +14,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update
 RUN apt install -qy systemd && mkdir -p /run/systemd
 RUN apt install -qy novnc
-
 RUN systemctl enable novnc
 
 
@@ -22,6 +21,7 @@ RUN systemctl enable novnc
 # Configuration #
 #################
 EXPOSE 80
+EXPOSE 6901
 
 ######################################################################################################################################
 # CMD #
