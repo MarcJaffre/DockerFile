@@ -14,5 +14,8 @@ RUN systemctl enable ssh
 # Définissez le répertoire de travail par défaut
 WORKDIR /root
 
+# Mot de passe root
+RUN echo "root:admin" | chpasswd
+
 # Définissez la commande à exécuter lors du démarrage du container
 CMD ["/sbin/init"]
