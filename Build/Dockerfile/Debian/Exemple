@@ -6,10 +6,8 @@ FROM debian:latest
 ###########################################################################################################################################################
 # Maintenance #
 ###############
-RUN apt update               1>/dev/null
-RUN apt install -y apt-utils 1</dev/null
-RUN apt install -y novnc     1>/dev/null
-RUN apt install -y x11vnc    1>/dev/null
+RUN apt update
+RUN apt install -y novnc x11vnc
 
 ###########################################################################################################################################################
 # Configuration #
