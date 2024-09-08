@@ -8,6 +8,15 @@ FROM debian:latest
 ##################
 RUN useradd -m myuser
 
+#####################################################################################
+# Package #
+###########
+RUN apt upadate
+RUN apt install -y systemd
+
+#####################################################################################
+# Service #
+###########
 RUN systemctl enable systemd-user
 RUN systemctl start systemd-user
 
