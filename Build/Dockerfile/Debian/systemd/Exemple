@@ -5,4 +5,4 @@ RUN useradd -m marc
 
 USER marc
 WORKDIR /home/marc
-CMD ["/usr/bin/loginctl enable-linger marc" , "&&", "/usr/bin/systemd"]
+CMD ["/usr/bin/loginctl", "enable-linger", "marc" , "&&", "/usr/bin/systemd"]
