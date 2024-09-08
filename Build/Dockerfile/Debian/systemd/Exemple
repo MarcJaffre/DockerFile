@@ -33,6 +33,7 @@ RUN echo "marc:admin" | chpasswd
 # WorkDir #
 ###########
 WORKDIR /home/marc
+USER marc
 
 #####################################################################################
 # Start-up #
