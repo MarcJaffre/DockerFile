@@ -14,10 +14,9 @@ RUN useradd -m myuser
 RUN apt update
 RUN apt install -y systemd
 
-#####################################################################################
-# Service #
-###########
-RUN systemctl enable systemd-user
-RUN systemctl start systemd-user
 
+
+#####################################################################################
+# Launch #
+##########
 CMD ["/usr/lib/systemd/systemd", "--user"]
