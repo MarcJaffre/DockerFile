@@ -1,21 +1,36 @@
-# Use Debian as the base image
+##############################################################################################
+# Operating System #
+####################
 FROM debian:latest
 
-# Set the environment variable
+##############################################################################################
+# Definir l'environnement en conteneur #
+########################################
 ENV container=docker
 
-# Update the package list
-RUN apt update
+##############################################################################################
+# Mise a jour #
+###############
+RUN apt update 
 
-# Install systemd and dumb-init
+##############################################################################################
+# Installation de paquet #
+##########################
 RUN apt install -y systemd dumb-init runit
 
-# Créez l'utilisateur et le groupe docker
-RUN groupadd -r docker && useradd -r -g docker docker
+##############################################################################################
+# Créez l'utilisateur et le groupe docker #
+###########################################
+RUN groupadd -r    docker
+RUN useradd  -r -g docker docker
 
-# Configure systemd pour utiliser l'utilisateur et le groupe docker
-RUN sed -i 's/^User=.*/User=docker/' /etc/systemd/system.conf
+##############################################################################################
+# Configure systemd pour utiliser l'utilisateur et le groupe docker #
+#####################################################################
+RUN sed -i 's/^User=.*/User=docker/'   /etc/systemd/system.conf
 RUN sed -i 's/^Group=.*/Group=docker/' /etc/systemd/system.conf
 
-# Expose the command to run systemd with dumb-init and --user option
+##############################################################################################
+# Expose the command to run systemd in mode User #
+##################################################
 CMD ["runit"]
