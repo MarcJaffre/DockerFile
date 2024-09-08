@@ -7,24 +7,18 @@ FROM debian:latest
 # Environment #
 ###############
 ENV DEBIAN_FRONTEND=noninteractive
-EXPOSE 8080
-WORKDIR /root
+EXPOSE 80é
 
 ######################################################################################################################################
 # Maintenance #
 ###############
 RUN apt update
-RUN apt install -qy novnc
-RUN apt install -qy x11vnc
+RUN apt install -y systemd
 
 ######################################################################################################################################
 # Configuration #
 #################
-RUN mkdir -p /etc/novnc/
-RUN echo "vnc_host = 'localhost'" >> /etc/novnc/websockify.conf
-#RUN x11vnc -storepasswd /etc/x11vnc.passwd
 
 ######################################################################################################################################
 # CMD #
 #######
-CMD ["x11vnc", "-display", ":0", "-rfbport", "5900", "&", "websockify", "-v", "--web", "/usr/share/novnc", "8080", "localhost:5900"]
