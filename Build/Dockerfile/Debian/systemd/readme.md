@@ -8,5 +8,5 @@ docker run -it --privileged --hostname docker --name dev developpement
 ```
 runit
 dumb-init
-systemd
+systemd     == CMD ["systemd", "--system", "--log-level=info"]
 ```
