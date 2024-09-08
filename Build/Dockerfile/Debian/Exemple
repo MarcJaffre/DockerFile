@@ -7,15 +7,12 @@ FROM debian:latest
 # Maintenance #
 ###############
 RUN apt update
-
+RUN apt-get install -y supervisor
 
 ###########################################################################################################################################################
 # Configuration #
 #################
-
-
-
-
+RUN echo -e 'CMD ["supervisord", "-n"] \n \n [supervisord] \n nodaemon=true \n \n [program:mon_programme] \n command=/usr/bin/python /app/mon_programme.py \n autostart=true \n autorestart=true' > /etc/supervisor/conf.d/supervisord.conf
 
 
 
@@ -23,6 +20,9 @@ RUN apt update
 ###########################################################################################################################################################
 # Global #
 ##########
+WORKDIR /app
+EXPOSE 80
+
 
 ###########################################################################################################################################################
 # START #
