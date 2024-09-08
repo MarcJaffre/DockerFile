@@ -1,6 +1,6 @@
 FROM alpine:latest
 
 RUN apk update
-RUN apk add systemd
+RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --allow-untrusted systemd
 
 
