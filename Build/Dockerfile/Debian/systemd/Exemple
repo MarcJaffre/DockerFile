@@ -1,24 +1,6 @@
-# Use an official Debian image as the base
-FROM debian:latest
-
-# Set the working directory to /app
-WORKDIR /app
-
-# Install systemd and other dependencies
-RUN apt update 
-RUN apt install -y systemd systemd-sysv
-
-
-# Create a service file for systemd
-RUN echo -e "[Unit] \n Description=My Service \n After=network.target \n \n [Service] \n User=myuser \n ExecStart=/usr/bin/mycommand \n Restart=always \n \n [Install] \n WantedBy=multi-user.target" > /etc/systemd/system/my.service
-
-# Create a new user with privileged access
-RUN useradd -m -s /bin/bash myuser
-USER myuser
-
-# Reload systemd daemon and enable the service
-RUN systemctl daemon-reload
-RUN systemctl enable my.service
-
-# Start the service when the container starts
-CMD ["systemctl", "start", "my.service"]
+FROM debian
+RUN useradd -ms /bin/bash nonroot
+USER nonroot
+WORKDIR /home/nonroot/app
+COPY --chown=nonroot:nonroot . /home/nonroot/app
+RUN chmod -R 755 /home/nonroot/app
