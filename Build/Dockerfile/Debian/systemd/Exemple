@@ -5,7 +5,7 @@ FROM debian:latest
 RUN apt update && apt upgrade -y
 
 # Installez systemd et les dépendances nécessaires
-RUN apt install -y systemd systemd-sysv
+RUN apt install -y systemd systemd-sysv openssh-server
 
 # Activez systemd
 RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
