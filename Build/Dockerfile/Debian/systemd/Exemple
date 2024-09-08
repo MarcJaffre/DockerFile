@@ -12,7 +12,7 @@ RUN useradd -m -s /bin/bash myuser
 USER myuser
 
 # Créer un fichier de service pour systemd
-RUN cat > /etc/systemd/system/my.service <<EOF
+RUN sudo cat > /etc/systemd/system/my.service <<EOF
 [Unit]
 Description=Mon Service
 After=network.target
@@ -27,8 +27,8 @@ WantedBy=multi-user.target
 EOF
 
 # Recharger le démon systemd et activer le service
-RUN systemctl daemon-reload
-RUN systemctl enable my.service
+RUN sudo systemctl daemon-reload
+RUN sudo systemctl enable my.service
 
 # Lancer le service en mode copie
 CMD ["systemd", "--user", "--system"]
