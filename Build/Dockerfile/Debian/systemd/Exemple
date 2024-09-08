@@ -1,3 +1,4 @@
 FROM debian:bookworm
-RUN apt update && apt upgrade -y
-RUN apt install -y systemd
+RUN apt update
+
+
