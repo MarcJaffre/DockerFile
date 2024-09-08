@@ -13,17 +13,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Maintenance #
 ###############
 RUN apt update
-RUN apt install -y systemd
+RUN apt install -y systemd && mkdir -p /run/systemd
 RUN apt install -y apache2
-#RUN systemctl enable apache2
-
-
-######################################################################################################################################
-# Fix #
-#######
-RUN mkdir -p /run/systemd
-
-
 
 ######################################################################################################################################
 # Configuration #
