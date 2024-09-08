@@ -18,16 +18,16 @@ RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 RUN systemctl enable ssh
 
 #####################################################################################
-# Root #
-########
-RUN echo "root:admin" | chpasswd
-
-#####################################################################################
 # User #
 ########
 RUN useradd -m -s /bin/bash marc
 RUN usermod -aG sudo marc
+
+#####################################################################################
+# Passwd #
+##########
 RUN echo "marc:admin" | chpasswd
+RUN echo "root:admin" | chpasswd
 
 #####################################################################################
 # WorkDir #
@@ -37,7 +37,8 @@ WORKDIR /home/marc
 #####################################################################################
 # Start-up #
 ############
-#USER marc
 CMD ["/usr/lib/systemd/systemd"]
+
+#USER marc
 #CMD ["su", "marc"]
 
