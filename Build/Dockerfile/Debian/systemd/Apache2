@@ -18,11 +18,10 @@ RUN echo "[Install] \n systemctl daemon-reexec"  > /etc/systemd/system.conf.d/ov
 #########################################################################################################################################################
 # Install Apache #
 ##################
-#RUN apt install -y apache2
-
-#ENV container=docker
-#RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-#RUN systemctl enable apache2
+RUN apt install -y apache2
+ENV container=docker
+RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN systemctl enable apache2
 
 #RUN groupadd -r myservice
 #RUN useradd -r -g myservice -G myservice -m -d /home/myservice -s /sbin/nologin myservice
