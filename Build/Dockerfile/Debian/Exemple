@@ -4,6 +4,14 @@
 FROM debian:latest
 
 ###########################################################################################################################################################
+# Maintenance #
+###############
+RUN set -ex
+RUN apt update
+RUN apt install -y bash fluxbox git net-tools novnc supervisor x11vnc xterm xvfb
+RUN echo "[supervisord]\n nodaemon=true\n [include] \n files = /app/conf.d/*.conf" > /etc/supervisord.conf
+
+###########################################################################################################################################################
 # Configuration #
 #################
 ENV HOME=/root
@@ -17,12 +25,6 @@ ENV DISPLAY_HEIGHT=768
 ENV RUN_XTERM=yes
 ENV RUN_FLUXBOX=yes
 
-###########################################################################################################################################################
-# Maintenance #
-###############
-RUN set -ex
-RUN apt update
-RUN apt install -y bash fluxbox git net-tools novnc supervisor x11vnc xterm xvfb
 
 ###########################################################################################################################################################
 # Expose #
