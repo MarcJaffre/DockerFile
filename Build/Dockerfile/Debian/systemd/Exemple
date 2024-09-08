@@ -2,7 +2,8 @@ FROM debian:latest
 WORKDIR /app
 RUN apt update 
 RUN apt install -y systemd
-RUN apt install -y systemd-sysv
+#RUN apt install -y systemd-sysv
+
 RUN echo -e "[Service]\n ExecStart=/bin/bash\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/systemd.service
 RUN systemctl enable systemd
 CMD ["systemd"]
