@@ -13,6 +13,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 ###############
 RUN apt update
 RUN apt install -qy systemd
+RUN apt install -qy sysvinit-core
+
 
 ######################################################################################################################################
 # Configuration #
