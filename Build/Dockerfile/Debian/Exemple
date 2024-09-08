@@ -14,7 +14,7 @@ RUN rm -rf /var/lib/apt/lists/*
 ###########################################################################################################################################################
 # Configuration #
 #################
-echo "[inet_http_server] \n port=127.0.0.1:9001 \n username=user \n password=password \n serverurl=http://localhost:9001" > /etc/supervisord.conf
+RUN echo "[inet_http_server] \n port=127.0.0.1:9001 \n username=user \n password=password \n serverurl=http://localhost:9001" > /etc/supervisord.conf
 
 ###########################################################################################################################################################
 # Global #
