@@ -8,14 +8,14 @@ FROM debian:latest
 ###############
 RUN apt update 
 RUN apt install -y systemd
-#RUN apt install -y systemd-sysv
-#RUN apt install -y openssh-server
+RUN apt install -y systemd-sysv
+RUN apt install -y openssh-server
 
 #####################################################################################
 # Configuration #
 #################
-#RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-#RUN systemctl enable ssh
+RUN sed -i 's/#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN systemctl enable ssh
 
 #####################################################################################
 # Root #
@@ -25,9 +25,9 @@ RUN echo "root:admin" | chpasswd
 #####################################################################################
 # User #
 ########
-#RUN useradd -m -s /bin/bash marc
-#RUN usermod -aG sudo marc
-#RUN echo "marc:admin" | chpasswd
+RUN useradd -m -s /bin/bash marc
+RUN usermod -aG sudo marc
+RUN echo "marc:admin" | chpasswd
 
 #####################################################################################
 # WorkDir #
@@ -38,6 +38,8 @@ RUN echo "root:admin" | chpasswd
 # Start-up #
 ############
 CMD ["systemd"]
+
+
 
 #CMD ["su", "marc"]
 #USER marc
