@@ -29,6 +29,8 @@ RUN usermod -aG sudo marc
 RUN echo "marc:admin" | chpasswd
 RUN echo "root:admin" | chpasswd
 
+USER marc
+
 #####################################################################################
 # WorkDir #
 ###########
@@ -37,8 +39,8 @@ WORKDIR /home/marc
 #####################################################################################
 # Start-up #
 ############
-CMD ["/usr/lib/systemd/systemd"]
+CMD ["/usr/lib/systemd/systemd", "--user"]
 
-#USER marc
+
 #CMD ["su", "marc"]
 
