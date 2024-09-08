@@ -6,12 +6,13 @@ FROM debian:latest
 #####################################################################################################
 # Environment #
 ###############
+ENV DEBIAN_FRONTEND=noninteractive
 
 #####################################################################################################
 # Maintenance #
 ###############
 RUN apt update
-RUN ENV DEBIAN_FRONTEND=noninteractive apt install -qy systemd
+RUN apt install -qy systemd
 
 #####################################################################################################
 # Configuration #
