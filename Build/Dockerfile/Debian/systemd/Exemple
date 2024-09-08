@@ -5,11 +5,7 @@ FROM debian:latest
 WORKDIR /app
 
 # Installer systemd et les autres dépendances
-RUN apt-get update && apt-get install -y systemd systemd-sysv
-
-# Créer un nouvel utilisateur avec un accès non privilégié
-RUN useradd -m -s /bin/bash myuser
-USER myuser
+RUN apt-get update && apt-get install -y systemd systemd-sysv sudo
 
 # Créer un fichier de service pour systemd
 RUN sudo cat > /etc/systemd/system/my.service <<EOF
@@ -25,6 +21,11 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 EOF
+
+# Créer un nouvel utilisateur avec un accès non privilégié
+RUN useradd -m -s /bin/bash myuser
+USER myuser
+
 
 # Recharger le démon systemd et activer le service
 RUN sudo systemctl daemon-reload
