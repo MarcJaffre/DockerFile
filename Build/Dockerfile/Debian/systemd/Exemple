@@ -34,7 +34,6 @@ RUN echo "root:admin" | chpasswd
 ###########
 WORKDIR /home/marc
 
-
 ##############################################################################################
 # Créez l'utilisateur et le groupe docker #
 ###########################################
@@ -50,7 +49,6 @@ RUN sed -i 's/^Group=.*/Group=marc/' /etc/systemd/system.conf
 #####################################################################################
 # Start-up #
 ############
-USER marc
 CMD ["/usr/lib/systemd/systemd", "--user"]
 
 #CMD ["su", "marc"]
