@@ -14,12 +14,7 @@ RUN rm -rf /var/lib/apt/lists/*
 ###########################################################################################################################################################
 # Configuration #
 #################
-RUN echo "[supervisord]
-nodaemon=true
-[inet_http_server]
-port=127.0.0.1:9001
-username=user
-password=password" > etc/supervisord.conf
+RUN echo "[supervisord] \n nodaemon=true \n [inet_http_server] \n port=127.0.0.1:8080 \n username=user \n password=password" > etc/supervisord.conf
 
 ###########################################################################################################################################################
 # Global #
