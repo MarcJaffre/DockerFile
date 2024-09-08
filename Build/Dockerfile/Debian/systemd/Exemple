@@ -3,6 +3,6 @@ WORKDIR /app
 RUN apt update 
 RUN apt install -y systemd
 RUN apt install -y systemd-sysv
-RUN echo "[Service]\n ExecStart=/bin/bash\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/systemdé.service
+RUN echo -e "[Service]\n ExecStart=/bin/bash\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/systemdé.service
 RUN systemctl enable systemd
 CMD ["systemd"]
