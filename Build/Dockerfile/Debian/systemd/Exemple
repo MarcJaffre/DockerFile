@@ -30,6 +30,9 @@ RUN useradd  -r -g marc marc
 RUN sed -i 's/^User=.*/User=marc/'   /etc/systemd/system.conf
 RUN sed -i 's/^Group=.*/Group=marc/' /etc/systemd/system.conf
 
+RUN echo "marc ALL=(root) NOPASSWD: /sbin/sysctl" >> /etc/sudoers
+RUN sysctl --system -w kernel.pid_max=99999
+
 ##############################################################################################
 # Expose the command to run systemd in mode User #
 ##################################################
