@@ -15,6 +15,7 @@ RUN apt update
 RUN apt install -qy novnc
 RUN apt install -qy systemd
 RUN apt install -qy x11vnc
+RUN x11vnc -storepasswd /etc/x11vnc.passwd
 
 #####################################################################################################
 # Configuration #
