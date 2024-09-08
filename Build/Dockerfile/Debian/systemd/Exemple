@@ -38,6 +38,6 @@ WORKDIR /home/marc
 # Start-up #
 ############
 #USER marc
-CMD ["systemd"]
+CMD ["/usr/lib/systemd/systemd"]
 #CMD ["su", "marc"]
 
