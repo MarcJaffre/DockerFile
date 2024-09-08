@@ -1,6 +1,6 @@
 FROM alpine:latest
 
 RUN apk update
-apk add systemd
+RUN apk add systemd
 
 
