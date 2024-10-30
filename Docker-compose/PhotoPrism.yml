@@ -95,7 +95,7 @@ services:      #
   volumes:                                                     #
    - 'Data1:/photoprism/folder'                                #
    - 'Data2:/photoprism/originals'                             #
-   - 'Data3:/photoprism/originals/family'                      #
+   - 'Data3:/photoprism/originals/MesPHOTOS'                   #
    - 'Data4:/photoprism/import'                                #
    - 'Data5:/photoprism/storage'                               #
   # ---------------------------------------------------------- #
