@@ -12,8 +12,8 @@ services:      #
   image: 'photoprism/photoprism'                               #
   container_name: 'Photoprism'                                 #
   network_mode: 'bridge'                                       #
-  restart: unless-stopped                                      #
-  stop_grace_period: 10s                                       #
+  restart: 'unless-stopped'                                    #
+  stop_grace_period: '10s'                                     #
   # ---------------------------------------------------------- #
   hostname: 'photoprism'                                       #
   domainname: 'lan.Local'                                      #
@@ -37,7 +37,7 @@ services:      #
    PHOTOPRISM_SITE_URL: 'http://localhost:2342/'               #
    PHOTOPRISM_DISABLE_TLS: 'false'                             #
    PHOTOPRISM_DEFAULT_TLS: 'true'                              #
-   PHOTOPRISM_ORIGINALS_LIMIT: 5000                            #
+   PHOTOPRISM_ORIGINALS_LIMIT: '5000'                          #
    # --------------------------------------------------------- #
    PHOTOPRISM_HTTP_COMPRESSION: 'gzip'                         #
    PHOTOPRISM_LOG_LEVEL: 'info'                                #
@@ -63,7 +63,7 @@ services:      #
    PHOTOPRISM_INDEX_SCHEDULE: ''                               #
    # --------------------------------------------------------- #
    PHOTOPRISM_AUTO_INDEX: '300'                                #
-   PHOTOPRISM_AUTO_IMPORT: -1                                  #
+   PHOTOPRISM_AUTO_IMPORT: '-1'                                #
    # --------------------------------------------------------- #
    PHOTOPRISM_DETECT_NSFW: 'false'                             #
    PHOTOPRISM_UPLOAD_NSFW: 'true'                              #
