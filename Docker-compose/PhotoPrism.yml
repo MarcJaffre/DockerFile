@@ -7,114 +7,114 @@ services:      #
 ################################################################
 # Outil Album Photo                                            #
 ################################################################
- Photoprism:
+ Photoprism:                                                   #
   # ---------------------------------------------------------- #
-  image: 'photoprism/photoprism'
-  container_name: 'Photoprism'
-  network_mode: 'bridge'
-  restart: unless-stopped
-  stop_grace_period: 10s
+  image: 'photoprism/photoprism'                               #
+  container_name: 'Photoprism'                                 #
+  network_mode: 'bridge'                                       #
+  restart: unless-stopped                                      #
+  stop_grace_period: 10s                                       #
   # ---------------------------------------------------------- #
-  hostname: 'photoprism'
-  domainname: 'lan.Local'
+  hostname: 'photoprism'                                       #
+  domainname: 'lan.Local'                                      #
   # ---------------------------------------------------------- #
-  security_opt:
-    - seccomp:unconfined
-    - apparmor:unconfined
+  security_opt:                                                #
+    - 'seccomp:unconfined'                                     #
+    - 'apparmor:unconfined'                                    #
   # ---------------------------------------------------------- #
-  user: '1000:1000'
+  user: '1000:1000'                                            #
   # ---------------------------------------------------------- #
-  #depends_on:
-  # - mariadb
+  #depends_on:                                                 #
+  # - mariadb                                                  #
   # ---------------------------------------------------------- #
-  environment:
+  environment:                                                 #
    # --------------------------------------------------------- #
-   PHOTOPRISM_INIT: 'https'
-   PHOTOPRISM_ADMIN_USER: 'root'
-   PHOTOPRISM_ADMIN_PASSWORD: 'admin'
+   PHOTOPRISM_INIT: 'https'                                    #
+   PHOTOPRISM_ADMIN_USER: 'root'                               #
+   PHOTOPRISM_ADMIN_PASSWORD: 'admin'                          #
    # --------------------------------------------------------- #
-   PHOTOPRISM_AUTH_MODE: 'password'
-   PHOTOPRISM_SITE_URL: 'http://localhost:2342/'
-   PHOTOPRISM_DISABLE_TLS: 'false'
-   PHOTOPRISM_DEFAULT_TLS: 'true'
-   PHOTOPRISM_ORIGINALS_LIMIT: 5000
+   PHOTOPRISM_AUTH_MODE: 'password'                            #
+   PHOTOPRISM_SITE_URL: 'http://localhost:2342/'               #
+   PHOTOPRISM_DISABLE_TLS: 'false'                             #
+   PHOTOPRISM_DEFAULT_TLS: 'true'                              #
+   PHOTOPRISM_ORIGINALS_LIMIT: 5000                            #
    # --------------------------------------------------------- #
-   PHOTOPRISM_HTTP_COMPRESSION: 'gzip'
-   PHOTOPRISM_LOG_LEVEL: 'info'
-   PHOTOPRISM_READONLY: 'false'
-   PHOTOPRISM_EXPERIMENTAL: 'false'
+   PHOTOPRISM_HTTP_COMPRESSION: 'gzip'                         #
+   PHOTOPRISM_LOG_LEVEL: 'info'                                #
+   PHOTOPRISM_READONLY: 'false'                                #
+   PHOTOPRISM_EXPERIMENTAL: 'false'                            #
    # --------------------------------------------------------- #
-   PHOTOPRISM_DISABLE_CHOWN: 'false'
-   PHOTOPRISM_DISABLE_WEBDAV: 'false'
-   PHOTOPRISM_DISABLE_SETTINGS: 'false'
-   PHOTOPRISM_DISABLE_TENSORFLOW: 'false'
-   PHOTOPRISM_DISABLE_FACES: 'false'
-   PHOTOPRISM_DISABLE_CLASSIFICATION: 'false' 
-   PHOTOPRISM_DISABLE_VECTORS: 'false'
-   PHOTOPRISM_DISABLE_RAW: 'false'
-   PHOTOPRISM_RAW_PRESETS: 'false'
+   PHOTOPRISM_DISABLE_CHOWN: 'false'                           #
+   PHOTOPRISM_DISABLE_WEBDAV: 'false'                          #
+   PHOTOPRISM_DISABLE_SETTINGS: 'false'                        #
+   PHOTOPRISM_DISABLE_TENSORFLOW: 'false'                      #
+   PHOTOPRISM_DISABLE_FACES: 'false'                           #
+   PHOTOPRISM_DISABLE_CLASSIFICATION: 'false'                  #
+   PHOTOPRISM_DISABLE_VECTORS: 'false'                         #
+   PHOTOPRISM_DISABLE_RAW: 'false'                             #
+   PHOTOPRISM_RAW_PRESETS: 'false'                             #
    # --------------------------------------------------------- #
-   PHOTOPRISM_SIDECAR_YAML: 'false'
+   PHOTOPRISM_SIDECAR_YAML: 'false'                            #
    # --------------------------------------------------------- #
-   PHOTOPRISM_BACKUP_ALBUMS: 'false' 
-   PHOTOPRISM_BACKUP_DATABASE: 'false'
-   PHOTOPRISM_BACKUP_SCHEDULE: 'daily'
+   PHOTOPRISM_BACKUP_ALBUMS: 'false'                           #
+   PHOTOPRISM_BACKUP_DATABASE: 'false'                         #
+   PHOTOPRISM_BACKUP_SCHEDULE: 'daily'                         #
    # --------------------------------------------------------- #
-   PHOTOPRISM_INDEX_SCHEDULE: ''
+   PHOTOPRISM_INDEX_SCHEDULE: ''                               #
    # --------------------------------------------------------- #
-   PHOTOPRISM_AUTO_INDEX: 300
-   PHOTOPRISM_AUTO_IMPORT: -1
+   PHOTOPRISM_AUTO_INDEX: '300'                                #
+   PHOTOPRISM_AUTO_IMPORT: -1                                  #
    # --------------------------------------------------------- #
-   PHOTOPRISM_DETECT_NSFW: 'false'
-   PHOTOPRISM_UPLOAD_NSFW: 'true'
+   PHOTOPRISM_DETECT_NSFW: 'false'                             #
+   PHOTOPRISM_UPLOAD_NSFW: 'true'                              #
    # --------------------------------------------------------- #
-   PHOTOPRISM_DATABASE_DRIVER: 'sqlite'   
+   PHOTOPRISM_DATABASE_DRIVER: 'sqlite'                        #
    # --------------------------------------------------------- #
-   #PHOTOPRISM_DATABASE_DRIVER: 'mysql'
-   #PHOTOPRISM_DATABASE_SERVER: 'mariadb:3306'
+   #PHOTOPRISM_DATABASE_DRIVER: 'mysql'                        #
+   #PHOTOPRISM_DATABASE_SERVER: 'mariadb:3306'                 #
    # --------------------------------------------------------- #
-   #PHOTOPRISM_DATABASE_NAME: 'photoprism'
-   #PHOTOPRISM_DATABASE_USER: 'photoprism'
-   #PHOTOPRISM_DATABASE_PASSWORD: 'insecure'
+   #PHOTOPRISM_DATABASE_NAME: 'photoprism'                     #
+   #PHOTOPRISM_DATABASE_USER: 'photoprism'                     #
+   #PHOTOPRISM_DATABASE_PASSWORD: 'insecure'                   #
    # --------------------------------------------------------- #
-   PHOTOPRISM_SITE_CAPTION: 'AI-Powered Photos App'
-   PHOTOPRISM_SITE_DESCRIPTION: 'Hebergement photo'
-   PHOTOPRISM_SITE_AUTHOR: 'Marc Jaffre'
-   PHOTOPRISM_DEFAULT_LOCALE: 'fr'
+   PHOTOPRISM_SITE_CAPTION: 'AI-Powered Photos App'            #
+   PHOTOPRISM_SITE_DESCRIPTION: 'Hebergement photo'            #
+   PHOTOPRISM_SITE_AUTHOR: 'Marc Jaffre'                       #
+   PHOTOPRISM_DEFAULT_LOCALE: 'fr'                             #
   # ---------------------------------------------------------- #
-  # devices:
-  #  - '/dev/dri:/dev/dri'
-  #  - '/dev/nvidia0:/dev/nvidia0'
-  #  - '/dev/nvidiactl:/dev/nvidiactl'
-  #  - '/dev/nvidia-modeset:/dev/nvidia-modeset'
-  #  - '/dev/nvidia-nvswitchctl:/dev/nvidia-nvswitchctl'
-  #  - '/dev/nvidia-uvm:/dev/nvidia-uvm'
-  #  - '/dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools'
-  #  - '/dev/video11:/dev/video11'   
+  # devices:                                                   #
+  #  - '/dev/dri:/dev/dri'                                     #
+  #  - '/dev/nvidia0:/dev/nvidia0'                             #
+  #  - '/dev/nvidiactl:/dev/nvidiactl'                         #
+  #  - '/dev/nvidia-modeset:/dev/nvidia-modeset'               #
+  #  - '/dev/nvidia-nvswitchctl:/dev/nvidia-nvswitchctl'       #
+  #  - '/dev/nvidia-uvm:/dev/nvidia-uvm'                       #
+  #  - '/dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools'           #
+  #  - '/dev/video11:/dev/video11'                             #
   # ---------------------------------------------------------- #
-  volumes:
-   - 'Data1:/photoprism/folder'
-   - 'Data2:/photoprism/originals'
-   - 'Data3:/photoprism/originals/family'
-   - 'Data4:/photoprism/import'
-   - 'Data5:/photoprism/storage'
+  volumes:                                                     #
+   - 'Data1:/photoprism/folder'                                #
+   - 'Data2:/photoprism/originals'                             #
+   - 'Data3:/photoprism/originals/family'                      #
+   - 'Data4:/photoprism/import'                                #
+   - 'Data5:/photoprism/storage'                               #
   # ---------------------------------------------------------- #
-  ports:
-   - '2342:2342'
+  ports:                                                       #
+   - '2342:2342'                                               #
   # ---------------------------------------------------------- #
 ################################################################
 #
 #
 ################################################################
-volumes:
- Data1:
-  external: false
- Data2:
-  external: false
- Data3:
-  external: false
- Data4:
-  external: false
- Data5:
-  external: false
+volumes:                                                       #
+ Data1:                                                        #
+  external: false                                              #
+ Data2:                                                        #
+  external: false                                              #
+ Data3:                                                        #
+  external: false                                              #
+ Data4:                                                        #
+  external: false                                              #
+ Data5:                                                        #
+  external: false                                              #
 ################################################################
