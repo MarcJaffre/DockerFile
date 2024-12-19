@@ -23,7 +23,7 @@ services:      #
    DOCKER_MODS: 'ghcr.io/gilbn/theme.park:jellyfin'             #
    TP_THEME: 'dracula'                                          #
   # ----------------------------------------------------------- #
-  devices:                                                      #
+  #devices:                                                     #
   #- '/dev/dri:/dev/dri'                                        #
   #- '/dev/video19:/dev/video19'                                #
   # ----------------------------------------------------------- #
