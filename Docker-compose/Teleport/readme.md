@@ -16,7 +16,22 @@ VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 |
 nano $VOLUME/teleport.yml;
 ```
 
-#### C. Création du conteneur
+#### C. Création du conteneur avec les variables
+###### TELEPORT_IMAGE
+```bash
+public.ecr.aws/gravitational/teleport:10.2.1
+```
+
+###### COMMAND_START1
+```
+if [ ! -f /etc/teleport/teleport.yaml ]; then teleport configure > /etc/teleport/teleport.yaml; fi
+```
+
+###### COMMAND_START2
+```
+sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
+```
+###### Docker-compose
 ```
 ################
 version: '3.8' #
