@@ -17,6 +17,9 @@ nano $VOLUME/teleport.yml;
 echo $VOLUME/teleport.yml;
 ```
 
+ERROR: path '/etc/teleport/teleport.yaml' does not exist
+
+
 #### C. Création du stack
 Création du Stack `teleport` avec les variables.
 
@@ -55,6 +58,7 @@ services:      #
    - '5080:3080'                                      #
   # ------------------------------------------------- #
   volumes:                                            #
+   - '$CONFIG:/
    - 'config:/etc/teleport'                           #
    - 'data:/var/lib/teleport'                         #
 #######################################################
