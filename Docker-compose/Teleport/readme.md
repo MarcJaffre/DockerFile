@@ -4,12 +4,20 @@
 > Ajouter les variables
 > Démarrer le Stack
 
+
+**TELEPORT_IMAGE**
 ```bash
-TELEPORT_IMAGE  =  public.ecr.aws/gravitational/teleport:10.2.1
-COMMAND_START1  =  if [ ! -f /etc/teleport/teleport.yaml ]; then teleport configure > /etc/teleport/teleport.yaml; fi
-COMMAND_START2  =  sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
+public.ecr.aws/gravitational/teleport:10.2.1
+```
+**COMMAND_START1**
+```
+if [ ! -f /etc/teleport/teleport.yaml ]; then teleport configure > /etc/teleport/teleport.yaml; fi
 ```
 
+**COMMAND_START2**
+```
+sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
+```
 
 ### Phase 2: Génération du lien pour l'ajout de l'utilisateur
 > Ajouter un utilisateur Teleport via la commande suivante.
