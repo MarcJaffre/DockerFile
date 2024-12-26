@@ -17,11 +17,6 @@ nano $VOLUME/teleport.yml;
 ```
 
 
-VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
-echo $VOLUME/teleport.yml;
-ERROR: path '/etc/teleport/teleport.yaml' does not exist
-
-
 #### C. Création du stack
 Création du Stack `teleport` avec les variables.
 
@@ -34,6 +29,13 @@ public.ecr.aws/gravitational/teleport:10.2.1
 ```
 sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
+###### CONFIG
+```
+VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
+echo $VOLUME/teleport.yml;
+```
+
+
 
 ###### Docker-compose
 ```yml
@@ -60,7 +62,7 @@ services:      #
    - '5080:3080'                                      #
   # ------------------------------------------------- #
   volumes:                                            #
-   - '$CONFIG:/
+   - '$CONFIG:/etc/teleport/teleport.yaml'            #
    - 'config:/etc/teleport'                           #
    - 'data:/var/lib/teleport'                         #
 #######################################################
