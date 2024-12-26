@@ -1,6 +1,5 @@
 ------------------------------------------------------------------------------------------
-<p align='center'> Guide de création du conteneur Teleport </p>
-
+# <p align='center'> Guide de création du conteneur Teleport </p>
 ------------------------------------------------------------------------------------------
 
 ### Phase 1: Creation des conteneurs
