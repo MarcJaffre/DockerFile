@@ -1,7 +1,7 @@
 ------------------------------------------------------------------------------------------
 # <p align='center'> Guide de création du conteneur Teleport </p>
 ------------------------------------------------------------------------------------------
-### I. Portainer (Méthode 1)
+### II. Portainer (Méthode 2)
 #### A. Creation du Stack
 Création du Stack en modifiant le hostname et ajouter les variables suivantes.
 
@@ -47,7 +47,7 @@ Supprimer le service `Configuration`.
 <br />
 
 ------------------------------------------------------------------------------------------
-### III Génération du lien pour l'ajout de l'utilisateur
+### III. Génération du lien pour l'ajout de l'utilisateur
 > Ajouter un utilisateur Teleport via la commande suivante.
 ```bash
 clear;
