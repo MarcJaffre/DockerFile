@@ -64,7 +64,7 @@ volumes:                                              #
 
 ###### TELEPORT_IMAGE
 ```bash
-public.ecr.aws/gravitational/teleport:10.2.1
+public.ecr.aws/gravitational/teleport:14
 ```
 
 ###### COMMAND_START2
@@ -88,7 +88,7 @@ Création du Stack en modifiant le hostname et ajouter les variables suivantes.
 
 ###### TELEPORT_IMAGE
 ```bash
-public.ecr.aws/gravitational/teleport:10.2.1
+public.ecr.aws/gravitational/teleport:14
 ```
 
 ###### COMMAND_START1
