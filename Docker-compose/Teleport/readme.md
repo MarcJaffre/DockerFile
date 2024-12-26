@@ -14,9 +14,11 @@ Création du fichier `teleport.yml` sur la machine.
 clear
 VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
 nano $VOLUME/teleport.yml;
-echo $VOLUME/teleport.yml;
 ```
 
+
+VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
+echo $VOLUME/teleport.yml;
 ERROR: path '/etc/teleport/teleport.yaml' does not exist
 
 
