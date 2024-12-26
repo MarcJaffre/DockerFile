@@ -6,7 +6,7 @@
 #
 version: v2
 teleport:
-  nodename: Teleport
+  nodename: localhost
   data_dir: /var/lib/teleport
   log:
     output: stderr
