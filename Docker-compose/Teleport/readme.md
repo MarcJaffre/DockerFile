@@ -143,7 +143,11 @@ Aller dans Enroll New Resource > Debian. Ajouter le paramètre -k à curl. (fsSL
 ```
 bash -c "$(curl -fksSL https://192.168.0.80:3080/scripts/6b72faeb321fcfc159c9de976065f92b/install-node.sh)"
 ```
-
+```
+teleport start     -c /etc/teleport.yaml --insecure
+teleport app start -c /etc/teleport.yaml --insecure
+teleport db start  -c /etc/teleport.yaml --insecure
+```
 
 <br />
 <br />
