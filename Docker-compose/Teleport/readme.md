@@ -5,7 +5,7 @@
 ### I. Portainer (Méthode 1)
 #### A. Création du volume
 ```
-
+docker volume create teleport_config
 ```
 
 #### B. Teleport.yml
