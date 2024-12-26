@@ -6,7 +6,7 @@
 #### A. Création du volume
 ```bash
 clear;
-docker volume rm -f teleport_config;
+docker volume rm -f teleport_config  teleport_data 2>/dev/null;
 docker volume create teleport_config;
 ```
 
