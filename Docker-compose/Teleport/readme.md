@@ -1,4 +1,4 @@
-## Phase 1: Creation des conteneurs
+### Phase 1: Creation des conteneurs
 > Aller dans Portainer
 > Créer un stack
 > Ajouter les variables
