@@ -5,7 +5,7 @@
 > Démarrer le Stack
 
 
-##### TELEPORT_IMAGE
+###### TELEPORT_IMAGE
 ```bash
 public.ecr.aws/gravitational/teleport:10.2.1
 ```
