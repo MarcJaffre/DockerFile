@@ -134,7 +134,18 @@ docker exec teleport tctl users add marc --roles=editor,access --logins=root
 <br />
 
 ------------------------------------------------------------------------------------------
-### III. Génération du lien pour l'ajout de l'utilisateur
+### III. Ajout d'une machine
+#### Enroll New Resource
+Aller dans Enroll New Resource > Debian. Ajouter le paramètre -k à curl.
 
-#### X. Création du compte
-> Coller l'URL dans le navigateur en remplaçant `localhost` par l'adresse ip de la machine et le port.
+##### A 
+```
+bash -c "$(curl -fsSL https://192.168.0.80:3080/scripts/6b72faeb321fcfc159c9de976065f92b/install-node.sh)"
+
+
+
+<br />
+<br />
+
+------------------------------------------------------------------------------------------
+### III.
