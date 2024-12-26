@@ -6,7 +6,7 @@
 #
 version: v2
 teleport:
-  nodename: 192.168.0.80
+  nodename: Teleport
   data_dir: /var/lib/teleport
   log:
     output: stderr
