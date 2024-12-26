@@ -18,7 +18,7 @@ services:      #
   command: -c "$COMMAND_START1"                       #
   # ------------------------------------------------- #
   volumes:                                            #
-   - 'teleport_config:/etc/teleport'                  #
+   - 'config:/etc/teleport'                           #
 #######################################################
 #
 #
@@ -34,8 +34,8 @@ services:      #
   command: -c "$COMMAND_START2"                       #
   # ------------------------------------------------- #
   volumes:                                            #
-   - 'teleport_config:/etc/teleport'                  #
-   - 'teleport_data:/var/lib/teleport'                #
+   - 'config:/etc/teleport'                           #
+   - 'data:/etc/teleport'                             #
   # ------------------------------------------------- #
   ports:                                              #
    - '3023:3023'                                      #
@@ -48,9 +48,9 @@ services:      #
 #######################################################
 volumes:                                              #
  # -------------------------------------------------- #
- teleport_config:                                     #
+ config:                                              #
   external: false                                     #
  # -------------------------------------------------- #
- teleport_data:                                       #
+ data:                                                #
   external: false                                     #
 #######################################################
