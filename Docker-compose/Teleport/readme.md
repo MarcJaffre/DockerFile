@@ -43,7 +43,7 @@ services:      #
   # ------------------------------------------------- #
   image: "$TELEPORT_IMAGE"                            #
   container_name: 'teleport'                          #
-  network_mode: 'bridge'                              #
+  network_mode: 'host'                                #
   hostname: '192.168.0.80'                            #
   # ------------------------------------------------- #
   entrypoint: '/bin/sh'                               #
