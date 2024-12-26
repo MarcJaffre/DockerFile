@@ -17,6 +17,7 @@ nano $VOLUME/teleport.yml;
 ```
 
 #### C. Création du stack
+Création du Stack `teleport` avec les variables.
 
 ###### TELEPORT_IMAGE
 ```bash
@@ -27,6 +28,7 @@ public.ecr.aws/gravitational/teleport:10.2.1
 ```
 sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
+
 ###### Docker-compose
 ```
 ################
