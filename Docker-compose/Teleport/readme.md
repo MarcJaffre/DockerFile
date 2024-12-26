@@ -136,12 +136,12 @@ docker exec teleport tctl users add marc --roles=editor,access --logins=root
 ------------------------------------------------------------------------------------------
 ### III. Ajout d'une machine
 #### Enroll New Resource
-Aller dans Enroll New Resource > Debian. Ajouter le paramètre -k à curl.
+Aller dans Enroll New Resource > Debian. Ajouter le paramètre -k à curl. (fsSL > fksSL)
 
-##### A 
+###### Exemple 
 ```
-bash -c "$(curl -fsSL https://192.168.0.80:3080/scripts/6b72faeb321fcfc159c9de976065f92b/install-node.sh)"
-
+bash -c "$(curl -fksSL https://192.168.0.80:3080/scripts/6b72faeb321fcfc159c9de976065f92b/install-node.sh)"
+```
 
 
 <br />
