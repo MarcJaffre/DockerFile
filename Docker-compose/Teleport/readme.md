@@ -33,8 +33,8 @@ services:      #
   # ------------------------------------------------- #
   image: "$TELEPORT_IMAGE"                            #
   container_name: 'teleport'                          #
-  network_mode: 'bridge'                              #
-  hostname: '192.168.0.80'                            #
+  network_mode: 'host'                                #
+  hostname: 'teleport'                                #
   # ------------------------------------------------- #
   entrypoint: '/bin/sh'                               #
   command: -c "$COMMAND_START2"                       #
