@@ -72,6 +72,15 @@ public.ecr.aws/gravitational/teleport:10.2.1
 sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
 
+#### D. Ajouter un utilisateur Teleport via la commande suivante.
+```bash
+clear;
+docker exec teleport tctl users add marc --roles=editor,access --logins=root
+```
+
+<br />
+<br />
+
 ------------------------------------------------------------------------------------------
 ### II. Portainer (Méthode 2)
 #### A. Creation du Stack
@@ -115,15 +124,17 @@ Supprimer le service `Configuration`.
 #######################################################
 ```
 
+#### C. Ajouter un utilisateur Teleport via la commande suivante.
+```bash
+clear;
+docker exec teleport tctl users add marc --roles=editor,access --logins=root
+```
+
 <br />
 <br />
 
 ------------------------------------------------------------------------------------------
 ### III. Génération du lien pour l'ajout de l'utilisateur
-> Ajouter un utilisateur Teleport via la commande suivante.
-```bash
-clear;
-docker exec teleport tctl users add marc --roles=editor,access --logins=root
-```
-## Phase 3: Création du compte
+
+#### X. Création du compte
 > Coller l'URL dans le navigateur en remplaçant `localhost` par l'adresse ip de la machine et le port.
