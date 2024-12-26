@@ -1,13 +1,9 @@
 ------------------------------------------------------------------------------------------
 # <p align='center'> Guide de création du conteneur Teleport </p>
 ------------------------------------------------------------------------------------------
-
-### Phase 1: Creation des conteneurs
-> Aller dans Portainer
-> Créer un stack
-> Ajouter les variables
-> Démarrer le Stack
-
+### I. Portainer
+#### A. Creation du Stack
+Création du Stack avec les variables suivantes.
 
 ###### TELEPORT_IMAGE
 ```bash
