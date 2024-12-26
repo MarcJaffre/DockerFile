@@ -13,7 +13,7 @@ Création du fichier `teleport.yml` sur la machine.
 ```bash
 clear
 VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
-nano $VOLUME/teleport.yml
+nano $VOLUME/teleport.yml;
 ```
 
 #### C. Création du conteneur
