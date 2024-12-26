@@ -17,7 +17,7 @@ teleport:
   diag_addr: ""
 auth_service:
   enabled: "yes"
-  listen_addr: 192.168.0.80:3025
+  listen_addr: 0.0.0.0:3025
   proxy_listener_mode: multiplex
 ssh_service:
   enabled: "yes"
