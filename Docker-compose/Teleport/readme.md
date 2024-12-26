@@ -11,7 +11,7 @@ docker volume create teleport_config;
 ```
 
 #### B. Teleport.yaml
-Création du fichier `teleport.yaml` sur la machine et modifier l'ip dans le fichier.
+Création du fichier `teleport.yaml` sur la machine et modifier `192.168.0.80` par l'ip de la machine.
 ```bash
 clear
 VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
@@ -20,8 +20,6 @@ nano $VOLUME/teleport.yaml;
 
 #### C. Création du stack
 Création du Stack `teleport` avec les variables.
-
-
 
 ###### Docker-compose
 ```yml
