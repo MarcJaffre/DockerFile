@@ -153,4 +153,15 @@ teleport db start  -c /etc/teleport.yaml --insecure
 <br />
 
 ------------------------------------------------------------------------------------------
-### III.
+### IV. Supprimer
+```bash
+systemctl stop teleport
+systemctl disable teleport
+killall teleport
+launchctl unload -w /Library/LaunchDaemons/com.goteleport.teleport.plist
+rm -f /Library/LaunchDaemons/com.goteleport.teleport.plist
+rm -f /etc/teleport.yaml
+rm -rf /var/lib/teleport
+rm -f /etc/tsh.yaml
+rm -rf ~/.tsh  # User-specific data directory for tsh
+```
