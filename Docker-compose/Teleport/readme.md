@@ -3,7 +3,7 @@
 ------------------------------------------------------------------------------------------
 ### I. Portainer
 #### A. Creation du Stack
-Création du Stack avec les variables suivantes.
+Création du Stack en modifiant le hostname et ajouter les variables suivantes.
 
 ###### TELEPORT_IMAGE
 ```bash
