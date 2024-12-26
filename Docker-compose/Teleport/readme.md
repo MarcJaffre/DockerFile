@@ -18,7 +18,6 @@ VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 |
 nano $VOLUME/teleport.yaml;
 ```
 
-
 #### C. Création du stack
 Création du Stack `teleport` avec les variables.
 
