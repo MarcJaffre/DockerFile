@@ -20,7 +20,9 @@ if [ ! -f /etc/teleport/teleport.yaml ]; then teleport configure > /etc/teleport
 sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
 
+<br />
 
+------------------------------------------------------------------------------------------
 
 ## Phase 2: Génération du lien pour l'ajout de l'utilisateur
 > Ajouter un utilisateur Teleport via la commande suivante.
