@@ -126,4 +126,4 @@ clear;
 docker exec teleport tctl users add marc --roles=editor,access --logins=root
 ```
 ## Phase 3: Création du compte
-> Coller l'URL dans le navigateur en remplaçant `localhost` par l'adresse ip de la machine et le port `3080` par `5080`
+> Coller l'URL dans le navigateur en remplaçant `localhost` par l'adresse ip de la machine et le port.
