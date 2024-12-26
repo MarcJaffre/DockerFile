@@ -3,12 +3,13 @@
 
 ------------------------------------------------------------------------------------------
 ### I. Portainer (Méthode 1)
-
+#### A. Création du volume
 ```
 ```
 
 #### B. Teleport.yml
 > Création du fichier `teleport.yml` sur la machine.
+
 #### C. Création du conteneur
 ```
 ################
