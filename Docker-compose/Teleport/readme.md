@@ -30,7 +30,7 @@ sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
 
 ###### Docker-compose
-```
+```yml
 ################
 version: '3.8' #
 services:      #
