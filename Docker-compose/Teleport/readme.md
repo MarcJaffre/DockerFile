@@ -9,7 +9,10 @@ docker volume create teleport_config
 ```
 
 #### B. Teleport.yml
-> Création du fichier `teleport.yml` sur la machine.
+Création du fichier `teleport.yml` sur la machine.
+```bash
+clear
+FILE=docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 
 
 #### C. Création du conteneur
 ```
