@@ -166,3 +166,12 @@ rm -f /etc/tsh.yaml
 rm -rf ~/.tsh  # User-specific data directory for tsh
 rm -f /etc/tbot.yaml 
 ```
+
+
+```
+pkill -f teleport
+rm -rf /var/lib/teleport
+rm -f /etc/teleport.yaml
+rm -f /usr/local/bin/teleport /usr/local/bin/tctl /usr/local/bin/tsh 
+
+```
