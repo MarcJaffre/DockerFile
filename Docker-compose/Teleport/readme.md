@@ -8,7 +8,7 @@
 docker volume create teleport_config
 ```
 
-#### B. Teleport.yml
+#### B. Teleport.yaml
 Création du fichier `teleport.yaml` sur la machine.
 ```bash
 clear
@@ -29,13 +29,6 @@ public.ecr.aws/gravitational/teleport:10.2.1
 ```
 sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
-###### CONFIG
-```
-VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 | cut -d '"' -f 2 )
-echo $VOLUME/teleport.yml;
-```
-
-
 
 ###### Docker-compose
 ```yml
