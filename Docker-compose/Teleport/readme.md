@@ -62,7 +62,7 @@ services:      #
    - '5080:3080'                                      #
   # ------------------------------------------------- #
   volumes:                                            #
-   - '$CONFIG:/etc/teleport/teleport.yaml'            #
+   - "$CONFIG:/etc/teleport/teleport.yaml"            #
    - 'config:/etc/teleport'                           #
    - 'data:/var/lib/teleport'                         #
 #######################################################
