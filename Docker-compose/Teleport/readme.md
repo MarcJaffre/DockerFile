@@ -68,6 +68,7 @@ public.ecr.aws/gravitational/teleport:14
 ```
 
 ###### COMMAND_START2
+Ajouter `--insecure`.
 ```
 sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 ```
