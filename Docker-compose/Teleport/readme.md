@@ -16,7 +16,8 @@ VOLUME=$(docker volume inspect teleport_config  | grep Mount | cut -d ":" -f 2 |
 nano $VOLUME/teleport.yml;
 ```
 
-#### C. Création du conteneur avec les variables
+#### C. Création du stack
+
 ###### TELEPORT_IMAGE
 ```bash
 public.ecr.aws/gravitational/teleport:10.2.1
