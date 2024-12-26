@@ -33,7 +33,7 @@ services:      #
   # ------------------------------------------------- #
   image: "$TELEPORT_IMAGE"                            #
   container_name: 'teleport'                          #
-  network_mode: 'host'                                #
+  network_mode: 'bridge'                              #
   hostname: 'teleport'                                #
   # ------------------------------------------------- #
   entrypoint: '/bin/sh'                               #
@@ -43,7 +43,7 @@ services:      #
    - '3023:3023'                                      #
    - '3024:3024'                                      #
    - '3025:3025'                                      #
-   - '5080:3080'                                      #
+   - '3080:3080'                                      #
   # ------------------------------------------------- #
   volumes:                                            #
    - 'config:/etc/teleport'                           #
