@@ -24,6 +24,8 @@ sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 
 #### B. Edition du Stack
 Supprimer le service `Configuration`.
+```
+```
 
 <br />
 <br />
