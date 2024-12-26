@@ -25,6 +25,22 @@ sleep 1 && /bin/dumb-init teleport start -c /etc/teleport/teleport.yaml
 #### B. Edition du Stack
 Supprimer le service `Configuration`.
 ```
+#######################################################
+# Permet de generer le fichier de configuration       #
+#######################################################
+ configure:                                           #
+  # ------------------------------------------------- #
+  image: "$TELEPORT_IMAGE"                            #
+  container_name: 'teleport-configure'                #
+  network_mode: 'bridge'                              #
+  hostname: '192.168.0.80'                            #
+  # ------------------------------------------------- #
+  entrypoint: '/bin/sh'                               #
+  command: -c "$COMMAND_START1"                       #
+  # ------------------------------------------------- #
+  volumes:                                            #
+   - 'teleport_config:/etc/teleport'                  #
+#######################################################
 ```
 
 <br />
