@@ -174,3 +174,6 @@ rm -rf /var/lib/teleport
 rm -f /etc/teleport.yaml
 rm -f /usr/local/bin/teleport /usr/local/bin/tctl /usr/local/bin/tsh 
 ```
+
+
+docker exec teleport tctl nodes ls --format yaml
