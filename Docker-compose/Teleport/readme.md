@@ -175,7 +175,7 @@ rm -f /etc/teleport.yaml;
 rm -f /usr/local/bin/teleport;
 rm -f /usr/local/bin/tctl;
 rm -f /usr/local/bin/tsh;
-apt remove --purge teleport;
+apt remove --purge -y teleport;
 ```
 
 
