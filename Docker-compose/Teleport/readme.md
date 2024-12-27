@@ -143,15 +143,16 @@ Aller dans Enroll New Resource > Debian. Ajouter le paramètre -k à curl. (fsSL
 ```
 bash -c "$(curl -fksSL https://192.168.0.80:3080/scripts/6b72faeb321fcfc159c9de976065f92b/install-node.sh)"
 ```
-##### SystemD
-```
+##### Mode insecure (SystemD)
+```bash
+clear;
 sed -i -e "s/\/run\/teleport.pid/\/run\/teleport.pid \-\-insecure/g" /lib/systemd/system/teleport.service
-
-#ExecStart=/usr/local/bin/teleport start --config /etc/teleport.yaml --pid-file=/run/teleport.pid
-#ExecStart=/usr/local/bin/teleport start --pid-file=/run/teleport.pid --insecure
 systemctl daemon-reload;
 systemctl restart teleport.service;
 systemctl status teleport.service;
+
+#ExecStart=/usr/local/bin/teleport start --config /etc/teleport.yaml --pid-file=/run/teleport.pid
+#ExecStart=/usr/local/bin/teleport start --pid-file=/run/teleport.pid --insecure
 ```
 
 ```
