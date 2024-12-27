@@ -169,10 +169,12 @@ teleport db start  -c /etc/teleport.yaml --insecure
 ### IV. Supprimer un Node
 Patienter 10 minutes pour la suppression du node
 ```
-pkill -f teleport
-rm -rf /var/lib/teleport
-rm -f /etc/teleport.yaml
-rm -f /usr/local/bin/teleport /usr/local/bin/tctl /usr/local/bin/tsh 
+pkill -f teleport;
+rm -rf /var/lib/teleport;
+rm -f /etc/teleport.yaml;
+rm -f /usr/local/bin/teleport;
+rm -f /usr/local/bin/tctl;
+rm -f /usr/local/bin/tsh;
 ```
 
 
