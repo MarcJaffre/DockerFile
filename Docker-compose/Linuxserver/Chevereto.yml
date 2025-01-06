@@ -1,8 +1,8 @@
 version: '2.1'
 services:
   Chevereto:
-    container_name: 'chevereto'
     image: 'linuxserver/chevereto'
+    container_name: 'chevereto'
     network_mode: 'bridge'
     restart: 'unless-stopped'
     hostname: 'chevereto'
