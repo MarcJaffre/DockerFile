@@ -8,15 +8,16 @@ services:
   hostname: 'couchpotato'
   domainname: 'labs'
   environment:
-    PUID: ''
-    PGID: ''
-    TZ: 'Europe/Paris'
+   PUID: ''
+   PGID: ''
+   TZ: 'Europe/Paris'
   ports:
-    - '5050:5050' # WebUI
+   - '5050:5050' # WebUI
   volumes:
-    - 'CouchPotato:/config'
-    - 'CouchPotato:/downloads'
-    - 'CouchPotato:/movies'
+   - 'CouchPotato:/config'
+   - 'CouchPotato:/downloads'
+   - 'CouchPotato:/movies'
+
 volumes:
  CouchPotato:
   external: false
