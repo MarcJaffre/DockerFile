@@ -1,8 +1,8 @@
 version: '2.1'
 services:
  Daapd:
-  container_name: 'daapd'
   image: 'linuxserver/daapd'
+  container_name: 'daapd'
   network_mode: 'bridge'
   restart: 'unless-stopped'
   hostname: 'daapd'
