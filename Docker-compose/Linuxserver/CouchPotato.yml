@@ -1,8 +1,8 @@
 version: '2.1'
 services:
  CouchPotato:
-  container_name: 'couchpotato'
   image: 'linuxserver/couchpotato'
+  container_name: 'couchpotato'
   network_mode: 'bridge'
   restart: 'unless-stopped'
   hostname: 'couchpotato'
