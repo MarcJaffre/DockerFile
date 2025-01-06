@@ -1,8 +1,8 @@
 version: '2.1'
 services:
  Deluge:
-  container_name: 'deluge'
   image: 'linuxserver/deluge'
+  container_name: 'deluge'
   network_mode: 'bridge'
   restart: 'unless-stopped'
   hostname: 'Deluge'
