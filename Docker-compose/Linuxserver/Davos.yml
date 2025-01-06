@@ -1,8 +1,8 @@
 version: '2.1'
 services:
  Davos:
-  container_name: 'davos'
   image: 'linuxserver/davos'
+  container_name: 'davos'
   network_mode: 'bridge'
   restart: 'unless-stopped'
   hostname: 'davos'
