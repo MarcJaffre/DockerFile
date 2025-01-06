@@ -1,8 +1,8 @@
 version: '2.1'
 services:
   Bazarr:
-    container_name: 'bazarr'
     image: 'linuxserver/bazarr'
+    container_name: 'bazarr'
     network_mode: 'bridge'
     restart: 'unless-stopped'
     hostname: 'bazarr'
