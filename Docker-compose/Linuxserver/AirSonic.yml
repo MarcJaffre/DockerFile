@@ -5,8 +5,8 @@ services:      #
 #
 ######################################
   AirSonic:
-    container_name: 'airsonic'
     image: 'linuxserver/airsonic'
+    container_name: 'airsonic'
     network_mode: 'bridge'
     restart: 'unless-stopped'
     hostname: 'airsonic'
