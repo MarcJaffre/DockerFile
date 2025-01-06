@@ -4,6 +4,7 @@ services:      #
 ################
 #
 ########################################################
+  image: 'linuxserver/prowlarr'                        #
   container_name: 'Prowlarr'                           #
   network_mode: 'bridge'                               #
   restart: 'unless-stopped'                            #
