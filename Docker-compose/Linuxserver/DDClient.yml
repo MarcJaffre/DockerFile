@@ -1,6 +1,5 @@
 version: '2.1'
 services:
-
  DDClient:
   image: 'linuxserver/ddclient'
   container_name: 'ddclient'
@@ -14,7 +13,6 @@ services:
    TZ: 'Europe/Paris'
   volumes:
    - 'DDClient:/config'
-
 volumes:
  DDClient:
   external: false
