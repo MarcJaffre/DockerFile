@@ -16,7 +16,7 @@ services:      #
   environment:                                               #
    PUID: '0'                                                 #
    PGID: '0'                                                 #
-   TZ: 'Etc/UTC'                                             #
+   TZ: 'Etc/Europe'                                          #
   # -------------------------------------------------------- #
   ports:                                                     #
    - '1120:80'                                               #
